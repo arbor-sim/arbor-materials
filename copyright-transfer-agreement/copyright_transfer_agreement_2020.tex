@@ -1,0 +1,66 @@
+% Cover letter using letter.cls
+\documentclass[12pt,a4paper]{letter}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+
+%\signature{Brent Huisman}
+\let\raggedleft\center                % needed to get date center
+
+\begin{letter}{}
+
+\begin{center}
+{\large\bf Copyright Transfer Agreement}
+\end{center}
+
+\opening{
+\vspace{-2em}
+This ``Copyright Transfer Agreement'' is an agreement between the Forschungszentrum Jülich GmbH (``FZJ'') and the individual identified below (``the Contributor'') regarding the transfer of copyright for certain software (``the Contribution'').
+}
+
+\vspace{1em}
+{\large\bf The Contributor}
+
+\begin{tabular}{lc}
+    Name: & \tikz\draw [thick,dashed] (0,0) -- (10,0); \\
+    Organisation: & \tikz\draw [thick,dashed] (0,0) -- (10,0); \\
+    Address & \tikz\draw [thick,dashed] (0,0) -- (10,0); \\
+    Email & \tikz\draw [thick,dashed] (0,0) -- (10,0); \\
+    Github handle & \tikz\draw [thick,dashed] (0,0) -- (10,0); \\
+\end{tabular}
+
+\vspace{1em}
+{\large\bf The Contribution}
+
+This agreement pertains to the following contribution:
+
+All commits, changesets, patches and pull requests submitted by the Contributor to the Arbor team servers, source code repositories or mailing lists
+
+\begin{tabular}{lc}
+    from: & \tikz\draw [thick,dashed] (0,0) -- (7,0); \\
+    until: & \tikz\draw [thick,dashed] (0,0) -- (7,0); \\
+\end{tabular}
+
+\vspace{1em}
+{\large\bf Transfer of Rights}
+
+\begin{enumerate}
+    \item The Contributor transfers their copyright in the Contribution to FZJ.
+    \item This transfer grants FZJ the irrevocable right to publish, distribute and disseminate the Contribution in any manner and wherever and whenever it deems suitable.
+    \item This transfer grants FZJ the irrevocable right to release Arbor Software under other open source licenses in addition to the BSD 3-Clause license.
+\end{enumerate}
+
+\vspace{1em}
+{\large\bf Authorisation}
+
+Place, date, signature of the Contributor:
+
+\tikz\draw [thick,dashed] (0,0) -- (15,0); \\
+\tikz\draw [thick,dashed] (0,0) -- (15,0); \\
+
+\end{letter}
+
+\end{document}
