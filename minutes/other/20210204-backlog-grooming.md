@@ -6,3 +6,14 @@
     * few related to printing
 
 Left off at: Fix up our GPU back-end FVM/cable cell tests #820
+
+I'm checking
+* https://github.com/arbor-sim/arbor/issues/873
+* https://github.com/arbor-sim/arbor/issues/952
+* https://github.com/arbor-sim/arbor/issues/959 steal from neurml loaders
+* https://github.com/arbor-sim/arbor/issues/1080 -> after reorg call sam/nora
+    * extending cat docs niet in index
+
+Resume at: https://github.com/arbor-sim/arbor/issues/1151
+
+numerical repro: these simus zijn chaotic systems.
