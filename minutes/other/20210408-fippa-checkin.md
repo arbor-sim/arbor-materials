@@ -1,8 +1,10 @@
 Agenda FIPPA Check-in
 =======================
 
-Seb presentation
-----------------
+Sebastian S. presentation
+-------------------------
+
+(20210408-fippa-checkin-Sebastian_Schmitt.pdf)
 
 * Arbor docs: do not require NRN knowledge. NMODL. But there's no way around it.
 * Complex network examples: missing
@@ -15,6 +17,13 @@ Seb presentation
     * Voltage/calcium based plasticity (as opposed to event-based plasticity?)
     * No radial diffusion required (?)
     * Needed: an order/timeline
+* Paper
+    * Plasticity Rules
+        * Clopath et al.(2010): [Connectivity reflects coding: a model of voltage-based STDP with homeostasis](https://www.nature.com/articles/nn.2479)
+        * Graupner/Brunel (2012): [Calcium-based plasticity model explains sensitivity of synaptic changes to spike pattern, rate, and dendritic location](https://www.pnas.org/content/109/10/3991)
+        * Hiratani/Fukai (2017): [Detailed Dendritic Excitatory/Inhibitory Balance through Heterosynaptic Spike-Timing-Dependent Plasticity](https://www.jneurosci.org/content/37/50/12106)
+    * Neurobiology
+        * Yasuda (2017): [Biophysics of Biochemical Signaling in Dendritic Spines: Implications in Synaptic Plasticity](https://pubmed.ncbi.nlm.nih.gov/28866426/)
 
 FIPPA HBP Milestones
 --------------------
@@ -73,5 +82,4 @@ Minutes
 
 Date: 2021 04 08
 Presence: Christian, Sebastian, Sam, Nora, Thorsten, Brent, Ben
-
 
