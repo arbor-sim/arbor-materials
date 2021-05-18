@@ -1,8 +1,8 @@
-Arbor Team Meeting 2021 03 08
+Arbor Team Meeting 2021 00 00
 =============================
 
-Meeting link: https://webconf.fz-juelich.de/b/hui-8hm-slc-1ni
-Collaborative editing: Copy-paste to <https://demo.hedgedoc.org/new>
+Meeting link: https://meet.google.com/kod-knuo-pie or https://webconf.fz-juelich.de/b/hui-8hm-slc-1ni
+Collaborative editing: https://demo.hedgedoc.org/new
 Turn Issues and PRs you want to discuss into agenda items.
 
 Presence:
