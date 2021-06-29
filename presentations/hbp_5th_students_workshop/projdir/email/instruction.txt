@@ -1,0 +1,19 @@
+Hi all!
+
+Thanks for showing your interest in Arbor! Unfortunately we could not finish the network_ring demo in time. Attached to this email, you'll find the full script.
+
+There are two options to run it:
+1. Easiest is to use Google's Colab at https://colab.research.google.com.
+   Once you've made a new notebook, you can run:
+   !pip install arbor
+   This sets up Arbor, which may take a few minutes. After that, you can copy the network_ring demo into the notebook, and modify it if you like.
+2. On your own system, you can use the instructions at
+   https://arbor.readthedocs.io/en/latest/install/python.html
+   A compiler and cmake are required, so this assumes you know how to set those up.
+
+I hope the sessions was of some use to you. If you have a minute, please fill out our feedback form at arbor-sim.github.io/feedback
+
+If you have any further questions, don't hesitate to contact me at b.huisman@fz-juelich.de
+
+Cheers,
+Brent

@@ -1,0 +1,4 @@
+module load GCC/9.3.0 ParaStationMPI/5.4.7-1 mpi4py/3.0.3-Python-3.8.5
+export PYTHONPATH=$PYTHONPATH:/p/project/training2103/arbor/site-packages/
+cp -R /p/project/training2103/arbor/exercises/network_ring_step* ~
+cp -R /p/project/training2103/arbor/exercises/2021_hbpstudentconf_arbor.pdf ~
