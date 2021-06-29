@@ -1,0 +1,398 @@
+%  The AAU Poster Theme.
+%  2013-05-08 v. 1.1.0
+%  Copyright 2013 by Jesper Kjær Nielsen <jkn@es.aau.dk>
+%
+%  This is free software: you can redistribute it and/or modify
+%  it under the terms of the GNU General Public License as published by
+%  the Free Software Foundation, either version 3 of the License, or
+%  (at your option) any later version.
+%
+%  This is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%
+%  You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+\documentclass[a0paper,portrait]{baposter}
+\usepackage{xspace}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+%\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage[misc]{ifsym}
+\usepackage{fixltx2e}
+\usepackage{gensymb}
+
+\usepackage{caption}
+\captionsetup{
+  font=small,% set font size to footnotesize
+  labelfont=bf % bold label (e.g., Figure 3.2) font
+}
+
+% Make the standard latex tables look so much better
+\usepackage{array,booktabs}
+
+% For creating beautiful plots
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows,backgrounds,fit,shapes.geometric,calc}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% http://en.wikibooks.org/wiki/LaTeX/Colors
+\selectcolormodel{RGB}
+% define the three aau colors
+\definecolor{posterbg}{RGB}{230,230,255}% background colour for the poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lists
+% http://en.wikibooks.org/wiki/LaTeX/List_Structures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Easier configuration of lists
+\usepackage{enumitem}
+%configure itemize
+\setlist{%
+  topsep=3pt,% set space before and after list
+  noitemsep,% remove space between items
+  labelindent=\parindent,% set the label indentation to the paragraph indentation
+  leftmargin=*,% remove the left margin
+  font=\color{black}\normalfont, %set the colour of all bullets, numbers and descriptions to aaublue1
+}
+\setdescription{font=\color{blue!50!black}\normalfont\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% change/remove some names
+\addto{\captionsenglish}{
+  %remove the title of the bibliograhpy
+  \renewcommand{\refname}{\vspace{-0.7em}}
+  %change Figure to Fig. in figure captions
+  \renewcommand{\figurename}{Fig.}
+}
+% create links
+\usepackage{url}
+%note that the hyperref package is currently incompatible with the baposter class
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\todo}[1]{{\color{red}#1}}
+\newcommand{\hilight}[1]{{\color{blue}\textbf #1}}
+%\newcommand{\nestmc}{{\fontseries{m}\selectfont nest-mc}\xspace}
+%\newcommand{\nestmc}{{nest-mc}\xspace}
+\newcommand{\nestmc}{{\textcolor{blue!30!black}{nest::mc}}\xspace}
+\newcommand{\julich}{J\"ulich\xspace}
+\newcommand{\centerheader}[1]{\begin{center}\bfseries\Large{#1}\end{center} \vspace{-6pt}}
+\newcommand{\imageheader}[1]{\begin{center}\bfseries\large{#1}\end{center} \vspace{-2pt}}
+
+\newcommand{\newemph}[1]{{\color{blue!40!black}\em #1}}
+
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Start 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some changes that cannot be made in the preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set the background of the poster
+\background{
+  \begin{tikzpicture}[remember picture,overlay]%
+    %the poster background color
+    \fill[fill=white] (current page.north west) rectangle (current page.south east);
+
+    %the header
+    \fill [fill=white] (current page.north west) rectangle ([yshift=-\headerheight] current page.north east);
+  \end{tikzpicture}
+}
+% if you want to reduce the space before and after equations, use and adjust
+% the following lines
+%\addtolength{\abovedisplayskip}{-2mm}
+%\addtolength{\belowdisplayskip}{-2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General poster setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{poster}{
+    %general options for the poster
+    grid=false,
+    columns=3,
+    % these two control space between and padding inside
+    % the poster boxes
+    colspacing=3mm,
+    boxpadding=2mm,
+    %
+    headerheight=0.1\textheight,
+    background=user,
+    headerborder=closed,
+    borderColor=blue!40!black,
+    headershape=rectangle,
+    headershade=plain,
+    headerColorOne=blue!15,
+    textborder=rectangle,
+    boxshade=plain,
+    boxColorOne=white,
+    headerFontColor=black,
+    headerfont=\Large\sf,
+    linewidth=1pt
+}
+
+%the Eye Catcher (the logo on the left)
+{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=north west,xshift=0.02\paperwidth,yshift=-0.03\headerheight] at (current page.north west) {
+      \includegraphics[height=0.4\headerheight]{HBP_logo.jpg}
+    };
+    \node [anchor=north west,xshift=0.34\paperwidth,yshift=-0.10\headerheight] at (current page.north west) {
+      \includegraphics[height=0.25\headerheight]{julich_logo.pdf}
+    };
+    \node [anchor=north west,xshift=0.5\paperwidth,yshift=-0.10\headerheight] at (current page.north west) {
+      \includegraphics[height=0.25\headerheight]{nest-initiative.png}
+    };
+    \node [anchor=north west,xshift=0.63\paperwidth,yshift=-0.10\headerheight] at (current page.north west) {
+      \includegraphics[height=0.25\headerheight]{cscs_logo.pdf}
+    };
+    \node[anchor=north west,xshift=0.85\paperwidth,yshift=-0.14\headerheight] at (current page.north west) {
+      \includegraphics[height=0.15\headerheight]{ETHZ_logo.pdf}
+    };
+  \end{tikzpicture}
+  \vspace{0.3\headerheight}
+}
+%the poster title
+{ \Huge
+  \textbf{\nestmc} \\[0.1\baselineskip]
+\large 
+  A morphologically detailed neural network simulator for modern high performance computer architectures \\[0.2\baselineskip]
+  \small
+    Ben Cumming\textsuperscript{a}, Stuart Yates\textsuperscript{a} , Wouter Klijn\textsuperscript{b}, Alexander Peyser\textsuperscript{b}, Vasileios Karakasis\textsuperscript{a}\\
+    \textsuperscript{a}Swiss National Supercomputing Center \hspace{2mm}\textsuperscript{b}Simulation Lab Neuroscience, Forschungszentrum \julich  % Would could omit this line, but I guess its best to have it in
+}
+%the author(s)
+{\small
+    \vspace{1em} Ben Cumming, \\[0.5em]
+    Swiss National Supercomputing Center (CSCS), Switzerland\\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEFT HAND SIDE OF POSTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=motivation,column=0,row=0,span=2]{Why \nestmc?}
+    \begin{minipage}[t]{0.3\textwidth}
+        \centerheader{Local Field Potential}
+        \vspace{4pt}
+        \centering
+        Both as model output and as part of model feedback loop.
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \centerheader{Larger and Longer!}
+        \vspace{4pt}
+        \centering
+        Running more or larger models faster to improve parameter searches and statistical validation.
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \vspace{0pt}
+        \centerheader{Dynamic Models}
+        \vspace{12pt}
+        \centering
+        Time-varying morphology, connectivity and synapses.
+    \end{minipage}
+
+    \imageheader{\newemph{Many core} HPC architectures will become the norm}
+   % \vspace{0.5cm}
+
+    \hfill
+    \includegraphics[width=0.35\textwidth]{images/juron.jpg}
+    \hfill
+    \includegraphics[width=0.55\textwidth]{images/knlnode.jpg}
+    \hspace{0.5cm}
+
+    \begin{center}
+        The HBP PCP prototype systems at \julich. Both are a radical departure from current technology. \\
+        \newemph{left}: IBM ``fat node'' with Power8 CPUs and 4 GPUs. \newemph{right}: Cray XC ``blade'' with 4 Intel KNL nodes.
+    \end{center}
+
+    These new architectures are already ubiquitous -- we need to develop simulators designed to exploit these architectures \newemph{now}.
+    \nestmc aims to meet this need, alongside other efforts to add many core support to existing software.
+    We believe that designing software from the ground-up for the many-core environment will pay off in the medium to long term.
+
+    %These new architectures are becoming the standard environments \newemph{now} -- we need to develop simulators now that are designed for them.
+    %\newemph{\nestmc aims to meet this need}, alongside efforts to add many core support to existing codes.
+    %Designing from the ground up for many core will pay off in the medium to long term.
+
+    %However, it is very challenging to update legacy codes designed for single core, and later extended for multicore and distributed systems.
+    %However, it is a sisyphean task to update legacy codes designed for single core, and later extended for multicore and distributed systems.
+    %Computer architectures, development methods and programming languages are evolving --
+    %we need to work on simulators designed from the ground up for HPC systems that will be coming online now and in the near future.
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=who,column=0,below=motivation,span=1]{Who}
+    \begin{center}
+        \nestmc is developed by a team from three HPC centers at \julich, CSCS and BSC.
+    \end{center}
+    \vspace{-10pt}
+    \begin{itemize}
+        \item Part of HPC infrastructure work package in the \newemph{Human Brain Project}.
+        \item With the \newemph{NEST Initiative}.
+        \item The centers aim to prepare neuroscience users for new HPC architectures.
+        \item The team provides know-how in computer science, math and software development.
+    \end{itemize}
+\end{posterbox}
+
+\begin{posterbox}[name=how,column=1,below=motivation,span=1]{How}
+    \begin{center}
+        \nestmc is designed from the ground up\\for \newemph{many core}  architectures.
+    \end{center}
+    \vspace{-10pt}
+    \begin{itemize}
+        \item Written in modern C++, CUDA, Intel Threading Building Blocks and HPX.
+        \item Is \newemph{open source}.
+        \item Uses sound development practices including \newemph{unit testing}, \newemph{continuous Integration}, and \newemph{validation}.
+        \item Aims to be user and community-driven: you can help!
+    \end{itemize}
+\end{posterbox}
+
+\begin{posterbox}[name=nestmc,column=0,below=who,span=2]{Prototype}
+    \begin{minipage}[t]{0.4\textwidth}
+        \centerheader{Start with a prototype}
+         The first step is to develop a \newemph{sufficiently complex} prototype to inform important design considerations:
+        \begin{itemize}
+            \item Explore the trade-offs between abstraction and performance.
+            \item Support for representative architectures:
+                  multicore, Intel KNL, and GPU.
+            \item Choose features that test our assumptions and inform the design:
+            \begin{itemize}
+                \item Test \newemph{interopability} with an external API (e.g. LFP).
+                \item Test the \newemph{extensibility} of the internal API used to implement algorithms (e.g. gap junctions).
+                \item Test an exotic \newemph{back end} (e.g. GPU).
+            \end{itemize}
+            \item Aim to understand the design space and domain before committing to a design.
+        \end{itemize}
+   \end{minipage}
+\hfill
+    \begin{minipage}[t]{0.58\textwidth}
+        \centerheader{Prototype progress}
+            \vspace{-4pt} % because itemize dammit
+        \begin{itemize}
+            \item Support for x86 and KNL (GPU partially).
+            \item Supports NMODL for ion channels and synapses.
+            \item Distributed building of networks with millions of cells.
+            \item Finite volume discretization of the cable equation.
+            \item Generic network connection model distributed via MPI.
+            \item Asynchronous spike communication.
+            \item Validated against Neuron.
+        \end{itemize}
+            \vspace{-8pt} % because itemize dammit
+        \centerheader{Internal prototype APIs}
+        \includegraphics[width=\textwidth]{api.pdf}
+            \vspace{-25pt}
+        \begin{center}\scriptsize{The modular internal simulation code in the prototype is designed to allow plug and play of different simulation and communication implementations.}\end{center}
+   \end{minipage}
+
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=nestmc,column=0,below=nestmc,span=2]{Do you want to know more?}
+\hfill
+    \begin{minipage}{0.45\textwidth}
+
+        %\centering
+        The source code of the prototype is in an open repository on GitHub.
+        It isn't ready for general release, but we want to share our work with the community.
+        %We want to share our work with you, but please remember that code and documentation are not production quality.
+        \newemph{If you would like to know more, contribute or collaborate, please contact us!}
+        %\vspace{-2.5pt}
+    \end{minipage}
+\hfill
+    \begin{minipage}{0.5\textwidth}
+        \colorbox[HTML]{FCF3CF}{%
+            \begin{tabularx}{0.95\textwidth}{l|X}
+                web   & {eth-cscs.github.io/nestmc}\smallskip\\
+                source& {github.com/eth-cscs/nestmc-proto}\smallskip\\
+                email & {bcumming@cscs.ch}\\
+                      & {a.peyser@fz-juelich.de}\smallskip\\
+            \end{tabularx}
+        }
+    \end{minipage}
+\hfill
+
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RIGHT HAND SIDE OF POSTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}
+    [name=help,column=2,row=0,span=1,borderColor=blue!40!black,headerColorOne=blue!40!black,headerFontColor=white]
+    {User-driven development}
+          \newemph{We want help from the HBP community.}
+          \vspace{-2pt}
+
+        \begin{itemize}%\centering
+            \item Tell us which features you need.
+            \item Help us build a simulator for you.
+            \item Do you have ideas to contribute?
+        \end{itemize}
+        \vspace{-3pt}
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=plots,column=2,below=help,span=1]{Performance of prototype}
+        \colorbox[HTML]{FCF3CF}{%
+            \begin{tabularx}{0.95\textwidth}{l|X}
+                \footnotesize cluster
+                    &\footnotesize Cray XC40: 36 cores \& 64\,GB per node\smallskip\\
+                \footnotesize cells
+                    &\footnotesize 300 compartments \& 2000 synapses each\\
+                    &\footnotesize Passive dendrites, Hodgkin–Huxley soma\smallskip\\
+                \footnotesize duration
+                    &\footnotesize 500\,ms\smallskip\\
+            \end{tabularx}
+        }
+    \vskip4pt
+    \imageheader{Reduce wall time with more nodes}
+    \input{images/strong.tex}
+    { \small
+    Time to solution for two models of fixed size as a function of the number of compute nodes.
+    Increasing the number of processors reduces the time to solution, with little increase in the compute resources required, measured in \newemph{node hours} (nh).
+    }
+
+    \imageheader{Scale out model size}
+    \input{images/weak.tex}
+    { \small
+    Time to solution with 256 cells assigned to each core, as the number of nodes is increased.
+    This way one can scale up to large networks without significantly increasing wall time (about 9 minutes per simulated second for over 2 million cells on 256 nodes with 98\% scaling efficiency for this model).
+    }
+
+    \imageheader{Using high-speed memory on KNL}
+    \input{images/knlscaling.tex}
+    { \small
+    Two models are run on KNL with and without high-speed memory (solid and dashed lines respectively).
+    The results show the effect of fusing multiple cells into groups, which will be an important optimization for some models and architectures.
+    }
+
+    \vspace{10pt}
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{poster}
+\end{document}

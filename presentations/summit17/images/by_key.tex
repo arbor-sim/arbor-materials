@@ -1,0 +1,45 @@
+\tikzset{>=stealth', pil/.style={ ->, color=black!60, thick, } }
+\begin{tikzpicture}
+\begin{loglogaxis}[
+    height=0.7\textwidth,
+    width=\textwidth,
+    xmin=1,xmax=1000,
+    ymin=50,ymax=1000000,
+    ytick={100,10000,1000000},
+    yticklabels={100,10000,1000000},
+    xtick={1, 10, 100, 1000},
+    xticklabels={1, 10, 100, 1000},
+    ylabel=time (ms),
+    xlabel=synapses per compartment,
+    xticklabel style={yshift=-1pt},
+    yticklabel style={xshift=-1pt},
+    line width=1.2pt,
+    xlabel style={yshift=7pt},
+    ylabel style={yshift=-5pt},
+    legend style = {at={(1,0)}, anchor=south east},
+    grid=major]
+
+    \addplot[color=red, mark=*,mark size=1.5, mark options={fill=white}]
+        table[x=syncomp,y=atomic64]
+        {images/by_key.tbl};
+    \addplot[color=blue, mark=*,mark size=1.5, mark options={fill=white}]
+        table[x=syncomp,y=shuffle64]
+        {images/by_key.tbl};
+    \node[above, fill=blue!15, align=center, inner sep=1mm]
+       (p1) at (axis cs:10,1200){\tiny 1.7$\times$};
+    \node[above, fill=blue!15, align=center, inner sep=1mm]
+       (p2) at (axis cs:100,20000){\tiny 2.4$\times$};
+    \node[above, fill=blue!15, align=center, inner sep=1mm]
+       (p3) at (axis cs:700,40000){\tiny 11.4$\times$};
+    \legend{\footnotesize CUDA atomics, \footnotesize reduce-by-key};
+    \node[above,scale=0.8] at (axis cs:13,400000) {
+      \begin{minipage}{5cm}
+        \relsize{-5}
+        blue insets: atomics run time / reduce run time
+      \end{minipage}
+    };
+
+\end{loglogaxis}
+
+\end{tikzpicture}
+
