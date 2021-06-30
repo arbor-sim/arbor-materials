@@ -1,7 +1,6 @@
 \documentclass[t]{beamer}
 \usepackage{pdfpages}
 \usepackage{wrapfig}
-\usepackage{cutwin}
 \usetheme{Juelich}
 \setbeamertemplate{footer element1}[logo]{arbor-lines-proto-colour}
 
@@ -12,8 +11,6 @@
 \date{\today}
 \titlegraphic{\includegraphics%
     [width=\paperwidth]{placeholder}}
-
-\newcommand{\lenitem}[2][.6\linewidth]{\parbox[t]{#1}{\strut #2\strut}}
 
 \begin{document}
 \maketitle
@@ -80,17 +77,17 @@
 
 \end{frame}
 
-{
-\setbeamercolor{background canvas}{bg=}
-\includepdf[pages=1]{ocns-swg-slide.pdf}
-}
+% {
+% \setbeamercolor{background canvas}{bg=}
+% \includepdf[pages=1]{ocns-swg-slide.pdf}
+% }
 
 \begin{frame}
     \frametitle{Arbor Status}
     % \framesubtitle{Some numbers}
 
     \begin{itemize}
-        \item Latest release: v0.5.2
+        \item Latest release: v0.5. v0.6 imminent.
         \item 42 Github forks
         \item 1300+ commits to main branch
         \item loc: C++ header: 68k, C++: 68k, Python: 16k, reStructuredText: 8k
@@ -111,19 +108,14 @@
 %comp sci slide
 \begin{frame}
     \frametitle{Building Arbor}
-    \framesubtitle{begins with the computational model of neurons}
-
-    \mbox{}\hfill\raisebox{-\height}[0pt][0pt]{\includegraphics[width=.35\linewidth]{cell.pdf}}
-    \vspace*{-\baselineskip}
-
+    \framesubtitle{Computational model of Neurons}
     \begin{itemize}
-    \item \lenitem{Arbor simulates networks of multi-compartment neurons}
-    \item \lenitem{Neurons: approximated by axonal delay, synaptic functions and a set of cables connected in a tree.}
+    \item Arbor simulates networks of multi-compartment neurons
+    \item Neurons: approximated by axonal delay, synaptic functions and a set of cables connected in a tree.
     \item Cables: characterized as electrical compartments (frustums) composed of ion channels, cable resistance and capacitance.
     \item Neurons represented as sparse, close-to-band matrices to be solved (e.g. by Hines solver) against known current states due to synaptic conductance.
     \item Network and spike exchange between neurons at synapses are represented by concatenations of matrices.
     \end{itemize}
-
 \end{frame}
 
 % \begin{frame}
@@ -272,7 +264,7 @@
 
     Arbor internal model:
     \begin{itemize}
-    \item Internal API decouples model description, execution, spike exchange and cell simulation
+    \item Internal API uncouples model description, execution, spike exchange and cell simulation
     \item Computational work is hidden in pluggable backends, allowing automatic generation for different
 architectures
     \end{itemize}
@@ -359,196 +351,43 @@ architectures
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wrap up}
-    \framesubtitle{Questions?}
+    \frametitle{Demo}
+    % \framesubtitle{Aiming for high performance on HPC targets}
     \begin{itemize}
-        \item Web: \url{arbor-sim.org}
-        \item Docs: \url{docs.arbor-sim.org}
-        \item Community: \url{github.com/arbor-sim/arbor/discussions}
-        \item[]
+    \item To the demo!
+    \item \url{docs.arbor-sim.org/en/latest/tutorial/network_ring.html}
     \end{itemize}
-
-    { \scriptsize Acknowledgements: This research has received funding from the European Unions
-    Horizon 2020 Framework Programme for Research and
-    Innovation under the Specific Grant Agreement No. 720270
-    (Human Brain Project SGA1), Specific Grant Agreement No.
-    785907 (Human Brain Project SGA2), and Specific Grant
-    Agreement No. 945539 (Human Brain Project SGA3). }
-    \newline
-    \begin{figure}[h]
-        \begin{center}
-            \includegraphics[width=0.2\linewidth]{ebrains_logo.png}
-            \hspace{2em}
-            \includegraphics[width=0.4\linewidth]{HBP_logo.jpg}
-        \end{center}
-    \end{figure}
 \end{frame}
 
+
+
+
+
+
+
+
 \begin{frame}
-    \frametitle{Demo time!}
+    \frametitle{A brief history of Arbor}
     \begin{itemize}
-    \item We'll be doing the network ring tutorial:
-    \item[] \texttt{docs.arbor-sim.org/en/latest/tutorial/network\_ring.html}
-    \item[]
-    \item You can follow along locally
-    \item[] \texttt{pip install arbor}
-    \item[]
-    \item or connect at \url{https://jupyter-jsc.fz-juelich.de}
+        \item CSCS were working with EPFL on HPC-ification Neuron, Moose, Brian
+        \item Ben Cumming pitched the idea of a clean break to FZJ, where Alex Peyser picked it up
         \begin{itemize}
-        \item Register here: \url{https://judoor.fz-juelich.de/register}
-        \item Then request access: \url{https://judoor.fz-juelich.de/projects/join/training2120}
+        \item Fundamental to Arbor and the investment of CSCS and FZJ in it: better use of computational resources
+        \item To our knowledge, Arbor is one of the few HBP-grown projects!
         \end{itemize}
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Create a new Jupyterlab}
-    \framesubtitle{at the Jülich Supercomputing Centre}
-    \begin{itemize}
-    \item Version: JupyterLab
-    \item System: Jusuf
-    \item Account: your account
-    \item Project: training2120
-    \item Partition: LoginNode
-    \item[] Start!
-    \item Open Terminal
-    \item \texttt{source /p/project/training2120/setup}
-    \item \texttt{pip install --install-option='--mpi' arbor}
-    \item[] Ready.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Step 0}
-    \begin{itemize}
-    \item Documentation at \texttt{docs.arbor-sim.org}
+        \item Nest-MC (multi-compartment Nest) is born, unrelated to Nest however
         \begin{itemize}
-        \item 'Concepts' for conceptual explanation
-        \item Python and C++ sections detail the matching conceptual pages
+        \item initial commit: december 3, 2015
         \end{itemize}
-    \item Today's plan
-        \begin{itemize}
-        \item Make a cell
-        \item Make a recipe
-        \item Run
-        \item Visualize results
-        \end{itemize}
-    \item Navigate to the \texttt{exercises} directory
-    \item Open \texttt{network\_ring\_step1.py}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Step 1}
-    \framesubtitle{Make a cell}
-    \begin{figure}[h]
-        \begin{center}
-            \includegraphics[width=0.45\linewidth]{tutorial_network_ring_morph}
-            \hspace{2em}
-            \includegraphics[width=0.45\linewidth]{tutorial_network_ring_synapse_site}
-        \end{center}
-        \caption{Left: Make a morphology of 4 segments: a soma (pink) and a branched dendrite (light blue). Right: We’ll create labels for the root (red) and a synapse\_site (black).}
-    \end{figure}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Step 2}
-    \framesubtitle{Make a network}
-    \begin{itemize}
-        \item Cells are the basic building blocks in Arbor
-        \item Recipes tie them together
-        \item You’ll make your own recipe by inheriting from \texttt{arbor.recipe}
-        \item Some member functions need to be overridden
-        \item Todo:
-        \begin{itemize}
-            \item Connect each cell with the previous
-            \item Place an event generator on the first cell.
-            \item Probe the membrane voltage at "root"
-        \end{itemize}
+        \item September 28, 2017: renamed to Arbor
+        \item October 12, 2018: first formal release, v0.1
+        \item April 1, 2020: v0.3 release with Python wrapper
+        \item July 15, 2020: Brent Huisman hired as Product Owner
+        \item May 15, 2021: arbor-sim.org acquired
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}
-    \frametitle{Step 3}
-    \framesubtitle{Make a simulation}
-    \begin{itemize}
-        \item Describe
-        \begin{enumerate}
-            \item context (what hardware do you have?)
-            \item domain decomposition (how to use the hardware)
-            \item simulation
-        \end{enumerate}
-        \item Start with an \texttt{arbor.simulation} object, and see what you need for it.
-        \item (defaults are OK)
-        \item We need to store handles to the samplers, because later we’ll use \texttt{arbor.simulation.samples()} to retrieve results.
-    \end{itemize}
-\end{frame}
 
-
-\begin{frame}
-    \frametitle{Step 4}
-    \framesubtitle{Show your results!}
-    \begin{itemize}
-        \item We can extract results from
-        \begin{itemize}
-            \item \texttt{arbor.simulation.spikes}
-            \item \texttt{arbor.simulation.samples}
-        \end{itemize}
-        \item Print or plot
-        \begin{itemize}
-            \item I use Pandas and Seaborn
-            \item \texttt{pip install pandas seaborn}
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Bonus}
-    \framesubtitle{Arbor on HPC}
-    \begin{itemize}
-        \item We’re going big! MPI!
-        \begin{itemize}
-            \item \url{https://en.wikipedia.org/wiki/Message\_Passing\_Interface}
-        \end{itemize}
-        \item Lookup \texttt{arbor.mpi\_comm} and how to use it.
-        \item An \texttt{arbor.simulation} will now run distributed
-        \begin{itemize}
-            \item \texttt{arbor.simulation.samples} only knows about local results
-            \item You’ll need to save results from the instances yourself!
-        \end{itemize}
-        \item \texttt{srun -A training2120 -n 5 python network\_ring\_mpi.py}
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{The end}
-    \framesubtitle{Questions?}
-    \begin{itemize}
-        \item Web: \texttt{arbor-sim.org}
-        \item Docs: \texttt{docs.arbor-sim.org}
-        \item Contact: \texttt{contact@arbor-sim.org}
-        \item Community: \texttt{github.com/arbor-sim/arbor/discussions}
-        \item[]
-    \end{itemize}
-
-    { \scriptsize Acknowledgements: This research has received funding from the European Unions
-    Horizon 2020 Framework Programme for Research and
-    Innovation under the Specific Grant Agreement No. 720270
-    (Human Brain Project SGA1), Specific Grant Agreement No.
-    785907 (Human Brain Project SGA2), and Specific Grant
-    Agreement No. 945539 (Human Brain Project SGA3). }
-    \newline
-    \begin{figure}[h]
-        \begin{center}
-            \includegraphics[width=0.2\linewidth]{ebrains_logo.png}
-            \hspace{2em}
-            \includegraphics[width=0.4\linewidth]{HBP_logo.jpg}
-        \end{center}
-    \end{figure}
-\end{frame}
 
 \end{document}
