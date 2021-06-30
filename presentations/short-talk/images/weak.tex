@@ -1,0 +1,73 @@
+\documentclass[tikz,border=10pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows,backgrounds,fit,shapes.geometric,calc}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage{color}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\lstset{
+    language=[ANSI]C++,
+    basicstyle=\small\ttfamily,
+    identifierstyle=\color{black}\small\ttfamily,
+    keywordstyle=\color{red}\small\ttfamily,
+    commentstyle=\color{green!30!black}\bf\small\ttfamily,
+    breaklines=true
+}
+
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           color=black!60,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+\newcommand{\mechnodewidth}{0.8cm}
+\newcommand{\nodeheight}{1.5cm}
+\newcommand{\lst}[1]{\lstinline!#1!}
+
+\begin{document}
+\tikzset{>=stealth', pil/.style={ ->, color=black!60, thick, } }
+\begin{tikzpicture}
+    \begin{semilogxaxis}[
+        height=0.7\textwidth,
+        width=\textwidth,
+        xmin=1,xmax=260,
+        ymin=250,ymax=280,
+        axis y discontinuity=crunch,
+        xtick={1, 2, 4, 8, 16, 32, 64, 128, 256},
+        xticklabels={1, 2, 4, 8, 16, 32, 64, 128, 256},
+        ytick={255,260,265,270,275},
+        yticklabels={255,260,265,270,275},
+        %yticklabels={{~~~260},265,270,275},
+        %yticklabels={50k,100k,150k,200k,250k,300k,350k,400k},
+        ylabel=wall time (s),
+        xlabel=nodes,
+        line width=1.2pt,
+        xticklabel style={yshift=-2pt},
+        yticklabel style={xshift=-2pt},
+        legend style = {at={(0,1)}, anchor=north west},
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+        grid=major]
+        \addplot[color=blue, mark=*,mark size=1.5, mark options={fill=white}] table[x=nodes,y=256CPR]
+            {./images/scaling_nodes_vs_cpn.tbl};
+        \node[above, fill=blue!15, text width=2cm, align=center, inner sep=1mm] (a) at (axis cs:80,272.5){\scriptsize 2,359,296 cells};
+        \node[above, fill=blue!15, text width=1.4cm, align=center, inner sep=1mm] (b) at (axis cs:4,270){\scriptsize 9,216 cells};
+        \path[pil,->] (a.south) edge (axis cs:230,268.5);
+        \path[pil,->] (b.south) edge (axis cs:1.05,263.3);
+    \end{semilogxaxis}
+\end{tikzpicture}
+
+\end{document}

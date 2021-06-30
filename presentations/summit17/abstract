@@ -1,0 +1,60 @@
+# Arbor Feature Readiness
+
+The KPIs are based on measuring the number of features implemented in Arbor, and the quality of their implementation across key HPC architectures.
+
+Each feature has a status that indicates its readiness on each target system:
+
+| value  |   meaning                    |
+|--------|------------------------------|
+|    0   |   not implemented            |
+|    1   |   implemented                |
+|    2   |   implemented and optimized  |
+|    -   |   not applicable             |
+
+We assign an overall "Status" to each feature. The statis is the number of systems on which the feature has a high quality (optimized) implementation (i.e. 1, 2, or 3).
+
+| status |   meaning                    |
+|--------|------------------------------|
+|    1   |   implemented on at lease one platform |
+|    2   |   implemented and optimize on all platforms  |
+
+A feature is considered not applicable on a system if it does not require a hardware-specific implementation. For example, the online documentation doesn't require a hardware-specific implementation.
+
+The KPIs are presented for the following systems, which are all based on the same Cray XC40 cabinet and networks, and installed at CSCS:
+
+| system |   architecture               |
+|--------|------------------------------|
+| mc     |   Daint-mc: Cray XC40 with dual socket 18-core Intel Broadwell CPUs per node.|
+| gpu    |   Daint-gpu: Cray XC40 with a 12-core Intel Haswell CPU and 1 NVIDIA P100 GPU per node.|
+| knl    |   Tave: Cray XC40 with 1 64 KNL socket per node.|
+
+## KPI Table
+
+Feature                    | mc | gpu |tave | Status | Description | PR | Date |
+---------------------------|----|-----|-----|--------|-------------|----|------|
+Energy metering            |  2 |  2  |   2 |  3     | Record and report energy consumption of simulations. | #222 | M13 |
+Memory metering            |  2 |  2  |   2 |  3     | Record and report memory consumption of simulations. Records both CPU and GPU memory consumption seperately. | #220 | M13 |
+Generic cell groups        |  2 |  2  |   2 |  3     | Use type erasure for interface between a model and its cell groups, so that users and developers can easily extend Arbor with new cell types. | #259 | M14|
+Event delivery             |  2 |  2  |   2 |  3     | ...SAM TODO... | #261 </br> #297 | M15|
+Online documentation       |  2 |  -  |   - |  3     | Online ReadTheDocs documentation generated automatically on updates to the repository. | #328 | M16 |
+Target specific kernels    |  2 |  2  |   2 |  3     | Generate kernels/functions for user-defined mechanisms that are specifically optimized for the target system. This means CUDA kernels on GPU, and AVX2/AVX512 instrinsics on daint-mc and tave respectively. | #282, M16|
+Load balancer              |  2 |  2  |   2 |  3     | Implements a simple interface for implementing a load balancer, which produces a domain decomposition. Also extend cell groups to encapsulate an arbitrary set of cells, described by a domain decomposition. | #244 </br> #334 | M17|
+Seperable compilation      |  0 |  2  |   0 |  1     | Build back end optimized kernels with a different compiler than used for the rest of the library/front end. This reduces the number of compiler bugs and restrictions in the front end code. Currently only for CUDA on GPU. | #356 | M18|
+Continuous integration     |  2 |  0  |   0 |  1     | Automated compilation and testing of pull requests to check for bugs/problems. Currently on Travis CI, which does not support CUDA or KNL. | #340 | M18|
+Sampling                   |  2 |  2  |   2 |  3     | Flexible method for sampling values (e.g. voltage at a specific location) at a user defined set of time points| #353 | M18|
+
+This provids a snapshot of the status of the project at the end of M18, based on features that were added/extended in M12-M18.
+With this infrastructure in place, we can now monitor progress month by month for the rest of SGA1 and throughout SGA2.
+
+## KPIs
+
+Here are two KPIs:
+
+Sum of per-system values: 78
+
+This number doesn't tell much on its own, but if we track it over time, it gives a measure of how quickly features are being added or improved.
+
+Portability = 26/30 * 100% = 87%
+Portability = 8/10 * 100%  = 80%
+
+These attempt to measure current features coverage over all systems. The first takes the sum of the Status column, and divides it by the "perfect" score. The second measures the proportion of features that have been implemented across all systems.

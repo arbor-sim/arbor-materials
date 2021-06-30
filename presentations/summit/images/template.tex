@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+    \begin{semilogxaxis}[
+        height=0.7\textwidth,
+        width=\textwidth,
+        ymin=0,%ymax=400,
+        xmin=9,xmax=288,
+        xtick={9, 18, 36, 72, 144, 288},
+        xticklabels={9, 18, 36, 72, 144, 288},
+        ytick={100000,200000,300000,400000},
+        yticklabels={50k,100k,150k,200k,250k,300k,350k,400k},
+        ylabel=throughput (csps),
+        xlabel=threads,
+        legend style = {at={(0,1)}, anchor=north west},
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+        grid=major]
+        \addplot[color=blue, mark=o,mark size=2] table[x=threads,y=ddr4_bw]
+            {./images/template.tbl};
+        \addplot[color=red,  mark=o,mark size=2] table[x=threads,y=hbm_bw]
+            {./images/template.tbl};
+        \node[left, fill=white] at (axis cs:280,25000){(a)};
+        \legend{\footnotesize DDR4,\footnotesize MCDRAM};
+    \end{semilogxaxis}
+\end{tikzpicture}
+

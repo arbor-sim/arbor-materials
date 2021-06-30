@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+    [scale=0.62, every node/.style={scale=0.62}]
+    \begin{axis}[
+        xmode=log,
+        height=0.52\textwidth,
+        width=0.8\textwidth,
+        xmin=1, xmax=64,
+        xtick={1, 2, 4, 8, 16, 32, 64},
+        xticklabels={1, 2, 4, 8, 16, 32, 64},
+        ymin=0.0, ymax=1.05,
+        ytick={0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1},
+        yticklabels={0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100},
+        ylabel=strong scaling efficiency (\%),
+        xlabel=nodes,
+        xticklabel style={yshift=-2pt},
+        yticklabel style={xshift=-2pt},
+        legend style = {at={(0,0)}, anchor=south west},
+        line width=1pt,
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+        grid=major]
+
+        \addplot[color=green]
+            table[x=nodes,y=p_eff] {data/strong_multi.tbl};
+        \addplot[color=blue, mark=*, mark size=2, mark options={fill=white}]
+            table[x=nodes,y=mc_eff] {data/strong_multi.tbl};
+        \addplot[color=red, mark=triangle, mark size=2, mark options={fill=white}]
+            table[x=nodes,y=gpu_eff] {data/strong_multi.tbl};
+        \addplot[color=orange, mark=square, mark size=2, mark options={fill=white}]
+            table[x=nodes,y=knl_eff] {data/strong_multi.tbl};
+
+       \legend{ {\scriptsize perfect},
+                {\scriptsize \daintmc},
+                {\scriptsize \daintgpu},
+                {\scriptsize \tave},
+              };
+    \end{axis}
+    \end{tikzpicture}

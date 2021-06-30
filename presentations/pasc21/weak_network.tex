@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+    [scale=0.9, every node/.style={scale=0.9}]
+    \begin{semilogxaxis}[
+        height=0.4\textwidth,
+        width=\textwidth,
+        xmin=1,xmax=32768,
+        ymin=3.0,ymax=4.5,
+        ytick={3, 3.5, 4, 4.5},
+        yticklabels={3, 3.5, 4, },
+        %axis y discontinuity=crunch,
+        xtick={1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768},
+        xticklabels={1, , 4, , 16, , 64, , 256, , 1024, , 4096, , 16384, },
+        ylabel=Model build time (s),
+        xlabel=Sockets,
+        legend style = {at={(1,0)}, anchor=south east},
+        grid=major]
+    
+    \addplot[color=red, mark=o,mark size=2, only marks, very thick]
+        table[x=sockets,y=mpi]
+        {data/weak_network.tbl};
+    \addplot[color=blue, mark=o,mark size=1, very thick]
+        table[x=sockets,y=dry]
+        {data/weak_network.tbl};
+    
+    \legend{MPI, dry run};
+    \end{semilogxaxis}
+    
+    \begin{semilogxaxis}[
+        height=0.4\textwidth,
+        width=\textwidth,
+        xmin=1, xmax=32768,
+        ymin=3.2,ymax=4.6,
+        axis y discontinuity=crunch,
+        hide y axis,
+        xtick={1, 181, 32768},
+        % 10800, 1954800, 353894400
+        xticklabels={$1.08\cdot10^4$, $1.95\cdot 10^6$, $3.54\cdot 10^8$},
+        axis x line*=top,
+        xlabel=Cells,
+        xlabel near ticks]
+    \end{semilogxaxis}
+
+\end{tikzpicture}
+

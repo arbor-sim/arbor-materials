@@ -1,0 +1,109 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <base href="https://services.humanbrainproject.eu/oidc/">
+
+    <meta charset="utf-8">
+    <title>OpenID Connect Server - Log In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="resources/images/favicon.ico" rel="Shortcut Icon" />
+
+    <!-- Le styles -->
+    <link href="resources/bower_components/angular-hbp-common/dist/hbp-common.min.css" rel="stylesheet" />
+    <link href="resources/styles/main.css" rel="stylesheet" />
+
+    <!-- Load jQuery up here so that we can use in-page functions -->
+    <script type="text/javascript" src="resources/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script type="text/javascript" src="resources/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+</head>
+
+<body>
+
+    <div id="modalAlert" class="modal hide fade">
+        <div class="alert alert-error">
+            <strong>Warning!</strong>
+            <div class="modal-body"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn primary" type="button"
+                onclick="$('#modalAlert').modal('hide');">OK</button>
+        </div>
+    </div>
+
+<div id="wrap">
+<script type="text/javascript">
+<!--
+    $(document).ready(function() {
+        $('#j_username').focus();
+    });
+//-->
+</script>
+
+<div class="container main">
+
+    <div class="text-center">
+        <h2 class="hbp-brand hbp-brand-inline-block"><span class="hbp-brand-logo"></span>Human Brain Project</h2>
+    </div>
+    <div class="row">
+        <form action="/oidc/j_spring_security_check" role="form" method="POST" name="j_spring_security_check">
+            <div class="col-sm-4 col-sm-offset-4 well">
+                <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                    type="text" name="j_username" id="j_username" value=""
+                                    spellcheck="false" autocomplete="off" autocapitalize="off"
+                                    autocorrect="off" placeholder="Username" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input
+                                    type="password" name="j_password" id="j_password"
+                                    spellcheck="false" autocomplete="off" autocapitalize="off"
+                                    autocorrect="off" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <input type="submit" name="submit" value="Login" class="btn btn-primary btn-block">
+				<a class="btn btn-success btn-block" href="/oidc/account/request">Request an Account</a>
+                <div class="hbp-login-form-links">
+                    <a href="../idm/account/forgotUserName"><small>Forgot username?</small></a>
+                    <a href="../idm/account/forgotPassword"><small>Forgot password?</small></a>
+                    <a data-toggle="collapse" data-target="#hbp-support"><small><i class="glyphicon glyphicon-question-sign"></i> Support</small></a>
+                </div>
+                <div id="hbp-support" class="collapse out hbp-login-help">
+                    <p>For support, please contact <a href="mailto:platform@humanbrainproject.eu">platform@humanbrainproject.eu</a></p>
+                    <br/>
+                    <p>Thank You,<br>The Human Brain Project<br/>Platform Team</p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+<div id="push"></div>
+</div>
+<!-- end #wrap -->
+<div id="footer">
+	<div class="container">
+		<p class="muted credit">
+			Powered by <a href="https://github.com/mitreid-connect/">MITREid Connect <span class="label">1.1.19.16</span></a> <span class="pull-right">&copy; 2016 The MITRE Corporation and MIT KIT.</span>
+
+		</p>
+	</div>
+</div>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>

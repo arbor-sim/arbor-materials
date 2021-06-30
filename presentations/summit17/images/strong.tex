@@ -1,0 +1,61 @@
+\tikzset{>=stealth', pil/.style={ ->, color=black!60, thick, } }
+\begin{tikzpicture}
+    \begin{loglogaxis}[
+        height=0.7\textwidth,
+        width=\textwidth,
+        xmin=1,xmax=512,
+        ymin=1, ymax=256,
+        xtick={1, 2, 4, 8, 16, 32, 64, 128, 256, 512},
+        xticklabels={1, 2, 4, 8, 16, 32, 64, 128, 256, 512},
+        %ytick={1,10,100,200},
+        ytick={1, 2, 4, 8, 16, 32, 64, 128, 256},
+        yticklabels={1,  , 4,  , 16,   , 64, , 256},
+        %yticklabels={1,10,100,200},
+        ylabel=wall time (s),
+        xlabel=nodes,
+        xticklabel style={yshift=-2pt},
+        yticklabel style={xshift=-2pt},
+        legend style = {at={(0,0)}, anchor=south west},
+        line width=1.2pt,
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+        grid=major]
+
+        \addplot[color=red, mark=*, mark size=1.5, mark options={fill=white}]
+            table[x=nodes,y=gpusmallt] {./images/strong.tbl};
+        \addplot[color=blue, mark=triangle*, mark size=1.5, mark options={fill=white}]
+            table[x=nodes,y=mcsmallt] {./images/strong.tbl};
+
+        \node[above, fill=red!15, align=center, inner sep=1mm]
+           (gsmall) at (axis cs:1.6,40){\tiny 174 s};
+        \path[pil,->] (gsmall.north) edge (axis cs:1.05,150);
+        \node[above, fill=blue!15, align=center, inner sep=1mm]
+           (msmall) at (axis cs:4,128){\tiny 211 s};
+        \path[pil,->] (msmall.west) edge (axis cs:1.1,210);
+
+        \node[above, fill=red!15, align=center, inner sep=1mm]
+           (gmin) at (axis cs:280,4){\tiny 5.1 s};
+        \path[pil,->] (gmin.west) edge (axis cs:140,5);
+        \node[above, fill=blue!15, align=center, inner sep=1mm]
+           (mmin) at (axis cs:280,1.7){\tiny 2.2 s};
+        \path[pil,->] (mmin.west) edge (axis cs:140,2.2);
+
+        \addplot[color=red!40, mark=*, mark size=1.5, mark options={fill=white, solid}]
+            table[x=nodes,y=gpubigt] {./images/strong.tbl};
+        \addplot[color=blue!40, mark=triangle*, mark size=1.5, mark options={fill=white}]
+            table[x=nodes,y=mcbigt] {./images/strong.tbl};
+
+        \node[above, fill=red!15, align=center, inner sep=1mm]
+           (glarge) at (axis cs:32,40){\tiny 176 s};
+        \path[pil,->] (glarge.north) edge (axis cs:32,155);
+        \node[above, fill=blue!15, align=center, inner sep=1mm]
+           (mslarge) at (axis cs:128,140){\tiny 204 s};
+        \path[pil,->] (mslarge.west) edge (axis cs:35,210);
+
+        \legend{ {\scriptsize gpu 18k},
+                 {\scriptsize mc 18k},
+                 {\scriptsize gpu 590k},
+                 {\scriptsize mc 590k}
+               };
+    \end{loglogaxis}
+\end{tikzpicture}
