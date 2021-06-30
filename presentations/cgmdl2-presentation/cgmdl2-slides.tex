@@ -1,0 +1,296 @@
+\documentclass[aspectratio=43,12pt]{beamer}
+
+\usepackage{moresize}
+\usepackage{siunitx}
+
+% Increase spacing in lists and enumerations.
+% Source: http://tex.stackexchange.com/questions/225736/latex-beamer-define-itemsep-globally
+\usepackage{xpatch}
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\ifnum\@itemdepth=1\relax
+     \setlength\itemsep{1ex}% separation for first level
+   \else
+     \ifnum\@itemdepth=2\relax
+       \setlength\itemsep{0.5ex}% separation for second level
+     \else
+       \ifnum\@itemdepth=3\relax
+         \setlength\itemsep{0.5ex}% separation for third level
+   \fi\fi\fi\def\makelabel
+  }
+ {}
+ {}
+
+% Theme works only with a 4:3 aspect ratio
+\usetheme{CSCS}
+
+% define footer text
+\newcommand{\footlinetext}{\nestmc{}}
+
+% Select the image for the title page
+\newcommand{\picturetitle}{cscs_images/image3.pdf}
+\newcommand{\nestmc}{NestMC}
+
+
+\newcommand{\ttilde}{\char`\~}
+
+\newcommand{\subheading}[1]{{\large #1}}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: \bf #1}}
+
+% Please use the predifined colors:
+% cscsred, cscsgrey, cscsgreen, cscsblue, cscsbrown, cscspurple, cscsyellow, cscsblack, cscswhite
+
+% colour rebel!
+\definecolor{light-grey}{gray}{0.6}
+
+\author{Sam Yates, CSCS}
+\title{\nestmc}
+\subtitle{\nestmc: a new multi-compartment neuron simulator}
+\date{\today}
+
+\begin{document}
+
+% TITLE SLIDE
+\cscstitle
+
+%--
+\begin{frame}
+\frametitle{What is \nestmc?}
+\vfill
+\nestmc{} is a project to develop:
+
+\vfill
+\begin{itemize}
+\item a new multi-compartmental neuron simulator,
+\item that is optimized for HPC systems,
+\item and is easy to integrate into existing workflows.
+\end{itemize}
+\vfill
+
+\nestmc{} is at the prototype stage, undergoing
+active development.\\
+\url{https://github.com/eth-cscs/nestmc-proto/}
+\vfill
+
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{Who is developing \nestmc{}?}
+\centering 
+\vspace{2ex}
+{\large Cross-institutional collaboration}\\[2ex]
+% dodgy by-hand scaling
+\includegraphics[height=2.8em]{logos/cscs_logo.pdf}
+\hspace{15mm}
+\includegraphics[height=3em]{logos/julich_logo.pdf}
+\hspace*{5mm}
+\\[1.4em]
+\includegraphics[height=2.9em]{logos/bsc_logo.pdf}\\
+
+\vfill
+{\large As part of}\\[2ex]
+\includegraphics[height=3em]{logos/nest-initiative.pdf}
+%\\[1.4em]
+\hspace{15mm}
+\includegraphics[height=3em]{logos/HBP_logo.jpg}
+
+\vspace*{1em}
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{Current status}
+
+\vfill
+Prototype:
+\begin{itemize}
+\item C++ library, `miniapp' front end for testing
+and benchmarking.
+\item Cell morphologies described by SWC.
+\item Density and point processes with linear dynamics,
+described by an NMODL subset, compiled offline.
+\item Multithreaded and distributed computation.
+\item Distributed model instantiation.
+\item GPU backend (unoptimized).
+\end{itemize}
+\vfill
+First release target: April 2017.
+\vfill
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{Model description in prototype}
+\vfill
+\begin{itemize}
+\item<+-> \textbf{Cell-oriented programmatic `recipe' for network}
+\begin{itemize}
+\item[+] Scalable distributed model instantiation.
+\item[-] Declarative descriptions require translation. 
+\end{itemize}
+\item<+-> \textbf{SWC for cell morphologies}
+\begin{itemize}
+\item[+] Common format.
+\item[-] Underspecified semantics: soma geometry, intersections.
+\end{itemize}
+\item<0> \textbf{NMODL mechanism descriptions}
+\begin{itemize}
+\item[+] Partial compatibility with NEURON; very flexible.
+\item[-] Implementation details freely mixed with description.
+\item[-] Poorly defined semantics --- no well defined abstract model.
+\end{itemize}
+\end{itemize}
+\vfill
+\end{frame}
+
+%--
+\begin{frame}[fragile]
+\frametitle{SWC example}
+
+Single point soma: spherical assumption, radius \SI{6}{\micro\metre}.\\
+\begin{center}
+\colorbox{black!10}{
+\ssmall\tt
+\begin{minipage}[t][7.5ex][t]{0.92\textwidth}
+\begin{tabbing}
+\hspace*{2em}\=\hspace*{2em}\=\hspace*{4em}\=\hspace*{4em}\=\hspace*{4em}\=\hspace*{4em}\=\kill
+1 \>1 \>0.0   \>0.0 \>0.0 \>6.0 \>-1\\
+2 \>3 \>8.0   \>0.0 \>0.0 \>0.5 \>1\\
+3 \>3 \>208.0 \>0.0 \>0.0 \>0.5 \>2\\
+\end{tabbing}
+\end{minipage}
+}
+\end{center}
+\pause
+How long is the dendrite?
+\begin{itemize}
+\item \SI{200}{\micro\metre}? (starts at point 2)
+\item \SI{202}{\micro\metre}? (starts from intersection of soma with line 1--2)
+\item \SI{208}{\micro\metre}? (starts from parent point 1)
+\end{itemize}
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{Model description in prototype}
+\vfill
+\begin{itemize}
+\item \textbf{Cell-oriented programmatic `recipe' for network}
+\begin{itemize}
+\item[+] Scalable distributed model instantiation.
+\item[-] Declarative descriptions require translation. 
+\end{itemize}
+\item \textbf{SWC for cell morphologies}
+\begin{itemize}
+\item[+] Common format.
+\item[-] Underspecified semantics: soma geometry, intersections.
+\end{itemize}
+\item \textbf{NMODL mechanism descriptions}
+\begin{itemize}
+\item[+] Partial compatibility with NEURON; very flexible.
+\item[-] Implementation details freely mixed with description.
+\item[-] Poorly defined semantics --- no well defined abstract model.
+\end{itemize}
+\end{itemize}
+\vfill
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{NMODL example}
+
+\only<1>{\small From calcium pump with diffusion model (The NEURON Book, ch. 8):}
+\only<2>{\small {\color{purple}Reaction fluxes exposed for current computation}}
+\only<3>{\small {\color{red}{\tt cao} actually constant}}
+\only<4>{\small {\color{blue}Implict reliance on time discretization}}
+
+\colorbox{black!10}{
+\begin{minipage}[t][0.6\textheight][t]{0.46\textwidth}
+\scriptsize\tt
+NEURON \{\\
+USEION ca READ {\color<3->{red}cao}, ica, cai WRITE cai, ica\\
+RANGE cacore, ica, \dots\\
+\}\\
+ASSIGNED \{\\
+cao\\
+cai\\
+ica\\
+ica\_pmp\\
+ica\_pmp\_last\\
+\}\\
+STATE \{\\
+cashell\\
+pump\\
+capump\\
+\}
+\end{minipage}}%
+\hfill
+\colorbox{black!10}{
+\begin{minipage}[t][0.6\textheight][t]{0.46\textwidth}
+\scriptsize\tt
+BREAKPOINT \{\\
+SOLVE pmp METHOD sparse\\
+{\color<4->{blue}
+ica\_pmp\_last = ica\_pmp\\
+ica = ica\_pmp}\\
+\}\\
+KINETIC pmp \{\\
+: \dots\\
+\ttilde cacore <-> cashell (\dots)\\
+\ttilde cashell + pump <-> capump (\dots)\\
+\ttilde capump <-> {\color<3->{red}cao} + pump (\dots)\\
+ica\_pmp = 2*F*{\color<2->{purple}(f\_flux-b\_flux)}\\
+\ttilde cashell <<\\
+\hspace*{1cm}{\color<4->{blue}((ica\_pmp\_last-ica)/(2*F))}\\
+cai = (0.001)*cashell\\
+\}
+\end{minipage}}
+
+\end{frame}
+
+%--
+\begin{frame}
+\frametitle{Model description goals}
+
+\vfill
+\textbf{Functional/declarative}\\
+\hspace{1em}--- facilitate model analysis/transformation.
+
+\vfill
+\textbf{Distributed instantiation}\\
+\hspace{1em}--- helps to constrain memory requirements, initialization time;\\
+\hspace{2em} necessary for very large models.
+
+\vfill
+\textbf{Unambiguous semantics}\\
+\hspace{1em}--- prerequisite for correctness, error estimation.
+
+\vfill
+\textbf{Compatible abstractions}\\
+\hspace{1em}--- straightforward transformation to internal representation\\
+\hspace{2em} and from other extant model representations.
+
+\vfill
+\end{frame}
+
+
+%************************************************
+\begin{frame}[noframenumbering,plain]
+\cscsthankyoucontent{}
+\begin{picture}(0,0)
+   \put(-18,-54){\bf Contact}
+   \put(60,-54){
+       \begin{minipage}[t]{10em}
+	  \tt
+	  \textcolor{cscsgrey}{bcumming@cscs.ch}\\
+	  \textcolor{cscsgrey}{yates@cscs.ch}\\
+	  \textcolor{cscsgrey}{a.peyser@fz-juelich.de}\\[2ex]
+	  \textcolor{cscsblue}{https://eth-cscs.github.io/nestmc}
+	  \textcolor{cscsblue}{https://eth-cscs.github.io/nestmc-proto}
+       \end{minipage}
+   }
+\end{picture}
+\end{frame}
+
+\end{document}

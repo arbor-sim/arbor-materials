@@ -1,0 +1,184 @@
+\documentclass[aspectratio=43,12pt]{beamer}
+
+\usepackage{circuitikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds,fit,shapes.geometric,calc}
+\usetikzlibrary{pgfplots.groupplots}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+% Increase spacing in lists and enumerations.
+% Source: http://tex.stackexchange.com/questions/225736/latex-beamer-define-itemsep-globally
+\usepackage{xpatch}
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\ifnum\@itemdepth=1\relax
+     \setlength\itemsep{2ex}% separation for first level
+   \else
+     \ifnum\@itemdepth=2\relax
+       \setlength\itemsep{0.5ex}% separation for second level
+     \else
+       \ifnum\@itemdepth=3\relax
+         \setlength\itemsep{0.5ex}% separation for third level
+   \fi\fi\fi\def\makelabel
+  }
+ {}
+ {}
+
+% Theme works only with a 4:3 aspect ratio
+\usetheme{CSCS}
+
+% define footer text
+\newcommand{\footlinetext}{\nestmc{}}
+
+% Select the image for the title page
+\newcommand{\picturetitle}{cscs_images/image3.pdf}
+\newcommand{\nestmc}{NestMC}
+
+
+\newcommand{\subheading}[1]{{\large #1}}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: \bf #1}}
+
+% Please use the predifined colors:
+% cscsred, cscsgrey, cscsgreen, cscsblue, cscsbrown, cscspurple, cscsyellow, cscsblack, cscswhite
+
+% colour rebel!
+\definecolor{light-grey}{gray}{0.6}
+
+\newcommand{\syn}{\hbox{\tiny syn}}
+\newcommand{\rev}{\hbox{\tiny rev}}
+
+\author{Ben}
+\title{benchmark plots for Sam}
+\date{\today}
+
+\begin{document}
+
+% TITLE SLIDE
+\cscstitle
+
+%--
+\begin{frame}
+    \frametitle{Optimizing For Multicore Cache}
+
+    \begin{center}
+    {\small Time to simulate 4068 cells for 50\,ms on an 18-core Broadwell CPU}
+    \end{center}
+        \vfill
+    \begin{tikzpicture}
+        \begin{axis}[
+            height=0.4\textwidth,
+            width=\textwidth,
+            ymin=0,ymax=9,
+            xmin=1,xmax=64,
+            xtick={1, 8, 16, 24, 32, 40, 48, 56, 64},
+            xticklabels={1, 8, 16, 24, 32, 40, 48, 56, 64},
+            ylabel=simulation (s),
+            xlabel=cell\_group size,
+            legend style = {at={(0,1)}, anchor=north west},
+            grid=major]
+            \addplot[color=blue, mark=o,mark size=2,very thick] table[x=groupsize,y=walltime]
+                {./x86_cache.tbl};
+        \end{axis}
+    \end{tikzpicture}
+
+    Cells can be fused, to make individual tasks.
+    Fewer cells per ``cell\_group'' is faster on multicore, because all cell information can fit in L2 Cache (16 cells for this model).
+    The GPU back end optimizes for throughput with large groups to maximise parallel work.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Time to solution scaling with model size.}
+
+    \begin{center}
+        {\small Wall time for a 20\,ms simulation as the model size increases on a single node. 2000 synapses and 300 compartments per cell.}
+    \end{center}
+        \vfill
+
+    \begin{tikzpicture}
+        \begin{loglogaxis}[
+            height=0.4\textwidth,
+            width=\textwidth,
+            xmin=1024,xmax=65536,
+            %ymin=0.01,ymax=100,
+            xtick={1, 8, 16, 24, 32, 40, 48, 56, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536},
+            xticklabels={1, 8, 16, 24, 32, 40, 48, 56, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536},
+            ylabel=simulation time (s),
+            xlabel=cells,
+            legend style = {at={(0,1)}, anchor=north west},
+            grid=major]
+            \addplot[color=blue, mark=o,mark size=1, very thick] table[x=cells,y=cpu300]
+                {./x86_vs_gpu_single_node.tbl};
+            \addplot[color=red, mark=o,mark size=1, very thick] table[x=cells,y=gpu300]
+                {./x86_vs_gpu_single_node.tbl};
+            \legend{\small 2$\times$18 core Broadwell, \small 1$\times$P100 GPU};
+        \end{loglogaxis}
+    \end{tikzpicture}
+    Illustration of GPU as throughput device: the multicore back end offers excellent strong scaling, while the GPU performs better as the amount of work per node increases, breaking even at 8k cells.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{GPU speedup as function of model size}
+
+    \begin{center}
+        {\small GPU speedup relative to multicore for a 20\,ms as the model size increases on a single node. 2000 synapses per cell.}
+    \end{center}
+        \vfill
+
+    \begin{tikzpicture}
+        \begin{semilogxaxis}[
+            height=0.4\textwidth,
+            width=\textwidth,
+            xmin=1024,xmax=65536,
+            %ymin=0.01,ymax=100,
+            xtick={1, 8, 16, 24, 32, 40, 48, 56, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536},
+            xticklabels={1, 8, 16, 24, 32, 40, 48, 56, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536},
+            ylabel=gpu speedup,
+            xlabel=cells,
+            legend style = {at={(1,0)}, anchor=south east},
+            grid=major]
+        \addplot[color=blue, mark=o,mark size=1, very thick]
+            table[x=cells,y expr=\thisrow{cpu300}/\thisrow{gpu300}]
+            {./x86_vs_gpu_single_node.tbl};
+        \addplot[color=red, mark=o,mark size=1, very thick]
+            table[x=cells,y expr=\thisrow{cpu30}/\thisrow{gpu30}]
+            {./x86_vs_gpu_single_node.tbl};
+        \addplot[color=black, very thick]
+            coordinates {(1, 1) (100000, 1)};
+        \legend{\small 300 compartments/cell, \small 30 compartments/cell, \small break even};
+
+        \end{semilogxaxis}
+    \end{tikzpicture}
+
+    Time to solution on a single node (2$\times$BW18 vs P100 GPU) as the number size of the model is increased from 1k to 65k. Models with less complex cells scale better on GPU for lower cell counts\footnote{Note that the GPU version is not as well optimsed as the CPU.}.
+\end{frame}
+
+% ------ normal
+%   nodes       setup    timestep
+%       1        3.80        1.80
+%       2        3.88        1.81
+%       4        3.93        1.83
+%       8        3.98        1.83
+%      16        4.03        1.83
+%      32        4.11        1.83
+%      64        4.16        1.86
+
+% ------ dry run
+%   nodes       setup    timestep
+%       1        3.71        5.81
+%       2        3.78        5.82
+%       4        3.83        5.82
+%       8        3.89        5.82
+%      16        3.95        5.82
+%      32        4.02        5.82
+%      64        4.10        5.82
+%     128        4.14        5.82
+%     256        4.16        5.82
+%     512        4.21        5.82
+%    1024        4.23        5.82
+%    2048        4.21        5.82
+
+\end{document}

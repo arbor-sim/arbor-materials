@@ -1,0 +1,51 @@
+\tikzset{>=stealth', pil/.style={ ->, color=black!60, thick, } }
+\begin{tikzpicture}
+
+    % ENERGY
+    \begin{loglogaxis}[
+        axis y line*=right,
+        height=0.7\textwidth,
+        width=\textwidth,
+        xmin=100,xmax=25600,
+        ymin=0.2,ymax=600,
+        ytick={0.1, 1, 10, 100},
+        yticklabels={0.1, 1, 10, 100},
+        ylabel=ETS (kJ),
+        xlabel=cells,
+        xticklabel style={yshift=-2pt},
+        yticklabel style={xshift=1pt},
+        ylabel style={xshift=-10pt},
+        legend style = {at={(0,0)}, anchor=south west},
+        line width=1.2pt,
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel}]
+
+        \addplot[color=red, mark=triangle*, dashed, mark size=2, mark options={fill=white}]
+            table[x=cells,y=Egpu] {./images/single_node.tbl};
+        \addplot[color=blue, mark=triangle*, dashed, mark size=2, mark options={fill=white, solid}]
+            table[x=cells,y=Emc]  {./images/single_node.tbl};
+    \end{loglogaxis}
+
+    % WALL TIME
+    \begin{loglogaxis}[
+        axis y line*=left,
+        height=0.7\textwidth,
+        width=\textwidth,
+        xmin=100,xmax=25600,
+        ymin=0.5,ymax=400,
+        ylabel=wall time (s),
+        xlabel=cells,
+        xticklabel style={yshift=-2pt},
+        yticklabel style={xshift=-2pt},
+        legend style = {at={(0,0)}, anchor=south west},
+        line width=1.2pt,
+        every axis y label/.style=
+            {at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel}]
+
+        \addplot[color=red, mark=triangle*, mark size=2, mark options={fill=white, solid}]
+            table[x=cells,y=Tgpu] {./images/single_node.tbl};
+        \addplot[color=blue, mark=triangle*, mark size=2, mark options={fill=white, solid}]
+            table[x=cells,y=Tmc]  {./images/single_node.tbl};
+    \end{loglogaxis}
+\end{tikzpicture}
+

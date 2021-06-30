@@ -1,0 +1,829 @@
+@string{front-neuroinform = "Frontiers in Neuroinformatics"}
+@Article{kunkel-2014,
+  Title                    = {Spiking network simulation code for petascale computers},
+  Author                   = {Kunkel, Susanne and Schmidt, Maximilian and Eppler, Jochen Martin and Plesser, Hans Ekkehard and Masumoto, Gen and Igarashi, Jun and Ishii, Shin and Fukai, Tomoki and Morrison, Abigail and Diesmann, Markus and Helias, Moritz},
+  Journal                  = front-neuroinform,
+  Year                     = {2014},
+  Number                   = {78},
+  Volume                   = {8},
+
+  Abstract                 = {Brain-scale networks exhibit a breathtaking heterogeneity in the dynamical properties and parameters of their constituents. At cellular resolution, the entities of theory are neurons and synapses and over the past decade researchers have learned to manage the heterogeneity of neurons and synapses with efficient data structures. Already early parallel simulation codes stored synapses in a distributed fashion such that a synapse solely consumes memory on the compute node harboring the target neuron. As petaflop computers with some 100,000 nodes become increasingly available for neuroscience, new challenges arise for neuronal network simulation software: Each neuron contacts on the order of 10,000 other neurons and thus has targets only on a fraction of all compute nodes; furthermore, for any given source neuron, at most a single synapse is typically created on any compute node. From the viewpoint of an individual compute node, the heterogeneity in the synaptic target lists thus collapses along two dimensions: the dimension of the types of synapses and the dimension of the number of synapses of a given type. Here we present a data structure taking advantage of this double collapse using metaprogramming techniques. After introducing the relevant scaling scenario for brain-scale simulations, we quantitatively discuss the performance on two supercomputers. We show that the novel architecture scales to the largest petascale supercomputers available today.},
+  Doi                      = {10.3389/fninf.2014.00078},
+  File                     = {kunkel-2014.pdf:articles/kunkel-2014.pdf:PDF;kunkel-2014.pdf:articles/kunkel-2014.pdf:PDF},
+  ISSN                     = {1662-5196},
+  Library                  = {NET 4},
+  Owner                    = {apeyser},
+  Timestamp                = {2014.10.20},
+  Url                      = {http://www.frontiersin.org/neuroinformatics/10.3389/fninf.2014.00078/abstract}
+}
+
+@ARTICLE{Eppler,
+AUTHOR={Eppler, Jochen M  and  Helias, Moritz  and  Muller, Eilif  and  Diesmann, Markus  and  Gewaltig, Marc-Oliver},
+TITLE={{PyNEST}: a convenient interface to the {NEST} simulator},
+JOURNAL={Frontiers in Neuroinformatics},
+VOLUME={2},
+YEAR={2009},  
+NUMBER={12},
+DOI={10.3389/neuro.11.012.2008},
+ISSN={1662-5196},
+}
+
+@ARTICLE{Gewaltig:NEST,
+  author = {Marc-Oliver Gewaltig and Markus Diesmann},
+  title = {{NEST} (NEural Simulation Tool)},
+  journal = {Scholarpedia},
+  year = {2007},
+  volume = {2},
+  pages = {1430},
+  number = {4}
+}
+
+@article{eda,
+  title={Event-driven architecture overview},
+  author={Michelson, Brenda M},
+  journal={Patricia Seybold Group},
+  volume={2},
+  year={2006},
+  doi = {10.1571/bda2-2-06cc}
+}
+
+@inproceedings{dataflow,
+  title={An extended data-flow architecture for data analysis and visualization},
+  author={Abram, Greg and Treinish, Lloyd},
+  booktitle={Proceedings of the 6th Conference on Visualization'95},
+  pages={263},
+  year={1995},
+  organization={IEEE Computer Society},
+  isbn = {0-8186-7187-4},
+  acmid = {833845},
+  address = {Washington, DC, USA}
+}
+
+@inproceedings{WhitlockFM11,
+  author    = {Brad Whitlock and
+               Jean M. Favre and
+               Jeremy S. Meredith},
+  title     = {Parallel In Situ Coupling of Simulation with a Fully Featured
+               Visualization System},
+  booktitle = {EGPGV},
+  year      = {2011},
+  pages     = {101-109},
+  ee        = {http://dx.doi.org/10.2312/EGPGV/EGPGV11/101-109},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+@inproceedings{Childs:2005:ACS,
+title     = "A Contract-Based System for Large Data Visualization",
+journal   = "IEEE Visualization 2005", 
+booktitle = "Proceedings of IEEE Visualization 2005",
+author    = "Hank Childs AND Eric S. Brugger AND Kathleen S. Bonnell AND Jeremy S. Meredith AND Mark Miller AND Brad J. Whitlock AND Nelson Max ",
+year      = "2005",
+keywords  =	"large data, data flow networks, contract-based system",
+pages     = "190--198",
+location  = "Minneapolis, Minnesota", 
+eventtime = "October 23--25, 2005",
+abstract  = "VisIt is a richly featured visualization tool that is used to visualize some of the largest simulations ever run. The scale of these simulations requires that optimizations are incorporated into every operation VisIt performs. But the set of applicable optimizations that VisIt can perform is dependent on the types of operations being done. Complicating the issue, VisIt has a plugin capability that allows new, unforeseen components to be added, making it even harder to determine which optimizations can be applied. We introduce the concept of a contract to the standard data flow network design. This contract enables each component of the data flow network to modify the set of optimizations used. In addition, the contract allows for new components to be accommodated gracefully within VisIt's data flow network system. ",
+}
+
+@book{henderson_paraview_2004,
+    author = {Henderson, Amy},
+    citeulike-article-id = {4375994},
+    month = nov,
+    pages = {340},
+    posted-at = {2009-04-22 19:21:00},
+    priority = {2},
+    publisher = {Kitware},
+    title = {The {ParaView} Guide: A Parallel Visualization Application},
+    year = {2004}
+}
+
+@inproceedings{FabianMTBMGRJ11,
+  added-at = {2013-09-18T00:00:00.000+0200},
+  author = {Fabian, Nathan and Moreland, Kenneth and Thompson, David and Bauer, Andrew C. and Marion, Patrick and Geveci, Berk and Rasquin, Michel E. and Jansen, Kenneth E.},
+  biburl = {http://www.bibsonomy.org/bibtex/2744c521ce6028a4f8106735cfefa7aa2/dblp},
+  booktitle = {LDAV},
+  editor = {Rogers, David and Silva, Cláudio T.},
+  ee = {http://dx.doi.org/10.1109/LDAV.2011.6092322},
+  interhash = {ce193020e7144f7d3b879f5baa6123f5},
+  intrahash = {744c521ce6028a4f8106735cfefa7aa2},
+  isbn = {978-1-4673-0156-5},
+  keywords = {dblp},
+  pages = {89-96},
+  publisher = {IEEE},
+  timestamp = {2013-09-18T00:00:00.000+0200},
+  title = {The ParaView Coprocessing Library: A scalable, general purpose in situ visualization library.},
+  url = {http://dblp.uni-trier.de/db/conf/ldav/ldav2011.html#FabianMTBMGRJ11},
+  year = 2011
+}
+
+@ARTICLE{CyNEST,
+  
+ AUTHOR={Zaytsev, Yury V.  and  Morrison, Abigail},   
+	 
+TITLE={{CyNEST}: a maintainable {Cython}-based interface for the {NEST} simulator},      
+	
+JOURNAL={Frontiers in Neuroinformatics},      
+	
+VOLUME={8},      
+	
+YEAR={2014},      
+	
+NUMBER={23},     
+	  
+URL={http://www.frontiersin.org/neuroinformatics/10.3389/fninf.2014.00023/abstract},       
+	
+DOI={10.3389/fninf.2014.00023},      
+	
+ISSN={1662-5196} ,      
+	
+ABSTRACT={NEST is a simulator for large-scale networks of spiking point neuron models (Gewaltig and Diesmann, 2007). Originally, simulations were controlled via the Simulation Language Interpreter (SLI), a built-in scripting facility implementing a language derived from PostScript (Adobe Systems, Inc., 1999). The introduction of PyNEST (Eppler et al., 2008), the Python interface for NEST, enabled users to control simulations using Python. As the majority of NEST users found PyNEST easier to use and to combine with other applications, it immediately displaced SLI as the default NEST interface. However, developing and maintaining PyNEST has become increasingly difficult over time. This is partly because adding new features requires writing low-level C++ code intermixed with calls to the Python/C API, which is unrewarding. Moreover, the Python/C API evolves with each new version of Python, which results in a proliferation of version-dependent code branches. In this contribution we present the re-implementation of PyNEST in the Cython language, a superset of Python that additionally supports the declaration of C/C++ types for variables and class attributes, and provides a convenient foreign function interface (FFI) for invoking C/C++ routines (Behnel et al., 2011). Code generation via Cython allows the production of smaller and more maintainable bindings, including increased compatibility with all supported Python releases without additional burden for NEST developers. Furthermore, this novel approach opens up the possibility to support alternative implementations of the Python language at no cost given a functional Cython back-end for the corresponding implementation, and also enables cross-compilation of Python bindings for embedded systems and supercomputers alike.}}
+
+@ARTICLE{10.3389/fninf.2015.00029,
+  
+ AUTHOR={Nowke, Christian  and  Zielasko, Daniel  and  Weyers, Benjamin  and  Hentschel, Bernd  and  Peyser, Alexander  and  Kuhlen, Torsten},   
+	 
+TITLE={Integrating Visualizations into Modeling {NEST} Simulations},      
+	
+JOURNAL={Frontiers in Neuroinformatics},      
+	
+VOLUME={9},      
+	
+YEAR={2015},      
+	
+NUMBER={29},     
+	  
+URL={http://www.frontiersin.org/neuroinformatics/10.3389/fninf.2015.00029/abstract},       
+	
+DOI={10.3389/fninf.2015.00029},      
+	
+ISSN={1662-5196}       
+
+}
+
+@misc{North1997,
+author = {North, Chris and Shneiderman, Ben},
+keywords = {Human-Computer Interaction},
+title = {A Taxonomy of Multiple Window Coordination},
+url = {http://drum.lib.umd.edu//handle/1903/5892},
+year = {1997},
+publisher = {Institute for Systems Research},
+address = {Maryland, MD, USA}
+}
+
+@article{WangBaldonado2000,
+address = {New York, NY, USA},
+author = {{Wang Baldonado}, Michelle Q. and Woodruff, Allison and Kuchinsky, Allan},
+doi = {10.1145/345513.345271},
+isbn = {1581132522},
+journal = {Proceedings of the Working Conference on Advanced Visual Interfaces - AVI '00},
+keywords = {guidelines,information visualization,multiple views,usability heuristics,user interfaces},
+pages = {110--119},
+publisher = {ACM Press},
+title = {{Guidelines for using multiple views in information visualization}},
+url = {http://portal.acm.org/citation.cfm?doid=345513.345271},
+year = {2000}
+}
+
+@article{Roberts2007,
+author = {Roberts, Jonathan C.},
+doi = {10.1109/CMV.2007.20},
+isbn = {0-7695-2903-8},
+journal = {Fifth International Conference on Coordinated and Multiple Views in Exploratory Visualization (CMV 2007)},
+keywords = {coordinated and multiple views,exploratory visualization,information visualization,linked,views},
+month = jul,
+number = {Cmv},
+pages = {61--71},
+publisher = {IEEE Computer Society},
+title = {State of the art: coordinated \& multiple views in exploratory visualization},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4269947},
+year = {2007},
+address = {Washington, DC, USA},
+}
+
+@article{Ryu2003,
+author = {Ryu, Y. S. and Yost, B. and Convertino, G. and Chen, J. and North, C.},
+doi = {10.1177/154193120304700371},
+isbn = {1541931203},
+issn = {1071-1813},
+journal = {Proceedings of the Human Factors and Ergonomics Society Annual Meeting},
+month = oct,
+number = {3},
+pages = {591--595},
+title = {Exploring Cognitive Strategies for Integrating Multiple-View Visualizations},
+url = {http://pro.sagepub.com/lookup/doi/10.1177/154193120304700371},
+volume = {47},
+year = {2003}
+}
+
+@inproceedings{North20,
+ author = {North, Chris and Shneiderman, Ben},
+ title = {Snap-together Visualization: A User Interface for Coordinating Visualizations via Relational Schemata},
+ booktitle = {Proceedings of the Working Conference on Advanced Visual Interfaces},
+ series = {AVI '00},
+ year = {2000},
+ isbn = {1-58113-252-2},
+ location = {Palermo, Italy},
+ pages = {128--135},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/345513.345282},
+ doi = {10.1145/345513.345282},
+ acmid = {345282},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {coordination, information visualization, multiple views, relational database, tight coupling, user interface, user study},
+}
+
+@inproceedings{Weaver04,
+ title={Building highly-coordinated visualizations in {I}mprovise},
+  author={Weaver, Chris},
+  booktitle={IEEE Symposium on Information Visualization, 2004},
+  pages={159--166},
+  year={2004},
+  organization={IEEE Computer Society},
+  address = {Austin, TX, USA}
+}
+
+@article{Boukhelifa2003,
+author = {Boukhelifa, Nadia and Rodgers, Peter J},
+doi = {10.1057/palgrave.ivs.9500057},
+issn = {1473-8716},
+journal = {Information Visualization},
+keywords = {coordination,coordination objects,exploratory visualization,multiple views},
+number = {4},
+pages = {258--269},
+title = {{A model and software system for coordinated and multiple views in exploratory visualization}},
+volume = {2},
+year = {2003}
+}
+
+@article{butz2013simple,
+  title={A simple rule for dendritic spine and axonal bouton formation can account for cortical reorganization after focal retinal lesions},
+  author={Butz, Markus and van Ooyen, Arjen},
+  journal={PLoS Comput Biol},
+  volume={9},
+  number={10},
+  pages={e1003259},
+  year={2013},
+  publisher={Public Library of Science}
+}
+
+@article{deco2014local,
+  title={How local excitation--inhibition ratio impacts the whole brain dynamics},
+  author={Deco, Gustavo and Ponce-Alvarez, Adri{\'a}n and Hagmann, Patric and Romani, Gian Luca and Mantini, Dante and Corbetta, Maurizio},
+  journal={The Journal of Neuroscience},
+  volume={34},
+  number={23},
+  pages={7886--7898},
+  year={2014},
+  publisher={Soc Neuroscience}
+}
+
+@article{deco2013resting,
+  title={Resting-state functional connectivity emerges from structurally and dynamically shaped slow linear fluctuations},
+  author={Deco, Gustavo and Ponce-Alvarez, Adri{\'a}n and Mantini, Dante and Romani, Gian Luca and Hagmann, Patric and Corbetta, Maurizio},
+  journal={The Journal of Neuroscience},
+  volume={33},
+  number={27},
+  pages={11239--11252},
+  year={2013},
+  publisher={Soc Neuroscience}
+}
+
+@article{wong2006recurrent,
+  title={A recurrent network mechanism of time integration in perceptual decisions},
+  author={Wong, Kong-Fatt and Wang, Xiao-Jing},
+  journal={The Journal of Neuroscience},
+  volume={26},
+  number={4},
+  pages={1314--1328},
+  year={2006},
+  publisher={Soc Neuroscience}
+}
+
+@misc{nest_2_10,
+  author       = {Bos, Hannah and
+                  Morrison, Abigail and
+                  Peyser, Alexander and
+                  Hahne, Jan and
+                  Helias, Moritz and
+                  Kunkel, Susanne and
+                  Ippen, Tammo and
+                  Eppler, Jochen Martin and
+                  Schmidt, Maximilian and
+                  Seeholzer, Alex and
+                  Djurfeldt, Mikael and
+                  Diaz, Sandra and
+                  Mor\'{e}n, Janne and
+                  Deepu, Rajalekshmi and
+                  Stocco, Teo and
+                  Deger, Moritz and
+                  Michler, Frank and
+                  Plesser, Hans Ekkehard},
+  title        = {{NEST} 2.10.0},
+  month        = dec,
+  year         = 2015,
+  doi          = {10.5281/zenodo.44222},
+  url          = {http://dx.doi.org/10.5281/zenodo.44222}
+}
+
+@ARTICLE{diaz2016,
+AUTHOR={Diaz-Pier, Sandra  and  Naveau, Mikaël  and  Butz-Ostendorf, Markus  and  Morrison, Abigail},
+TITLE={Automatic generation of connectivity for large-scale neuronal network models through structural plasticity},
+JOURNAL={Frontiers in Neuroanatomy},
+VOLUME={10},
+YEAR={2016},
+NUMBER={57},
+URL={http://www.frontiersin.org/neuroanatomy/10.3389/fnana.2016.00057/abstract},
+DOI={10.3389/fnana.2016.00057},
+ISSN={1662-5129}}
+
+@article{sporns2005human,
+  title={The human connectome: a structural description of the human brain},
+  author={Sporns, Olaf and Tononi, Giulio and K{\"o}tter, Rolf},
+  journal={PLoS Comput Biol},
+  volume={1},
+  number={4},
+  pages={e42},
+  year={2005},
+  publisher={Public Library of Science}
+}
+
+@article{Shneiderman1996,
+author = {Shneiderman, B.},
+doi = {10.1109/VL.1996.545307},
+isbn = {0-8186-7508-X},
+journal = {Proceedings 1996 IEEE Symposium on Visual Languages},
+pages = {336--343},
+publisher = {IEEE Computer Soc. Press},
+title = {{The eyes have it: a task by data type taxonomy for information visualizations}},
+year = {1996}
+}
+
+@inproceedings {eurorv3.20161112,
+booktitle = {EuroVis Workshop on Reproducibility, Verification, and Validation in Visualization (EuroRV3)}, editor = {Kai Lawonn and Mario Hlawitschka and Paul Rosenthal}, title = {Towards Multi-user Provenance Tracking of Visual Analysis Workflows over Multiple Applications}, author = {H\"anel, Claudia and Khatami, Mohammad and Kuhlen, Torsten W. and Weyers, Benjamin}, year = {2016}, publisher = {The Eurographics Association}, ISSN = {-}, ISBN = {978-3-03868-017-8}, DOI = {10.2312/eurorv3.20161112}
+}
+
+@article{sedlmair2014visual,
+  title={Visual parameter space analysis: A conceptual framework},
+  author={Sedlmair, Michael and Heinzl, Christoph and Bruckner, Stefan and Piringer, Harald and M{\"o}ller, Torsten},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={20},
+  number={12},
+  pages={2161--2170},
+  year={2014},
+  publisher={IEEE}
+}
+
+@article{matkovic2014visual,
+  title={Visual analytics for complex engineering systems: Hybrid visual steering of simulation ensembles},
+  author={Matkovi{\'c}, Kre{\^s}imir and Gra{\v{c}}anin, Denis and Splechtna, Rainer and Jelovi{\'c}, Mario and Stehno, Benedikt and Hauser, Helwig and Purgathofer, Werner},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={20},
+  number={12},
+  pages={1803--1812},
+  year={2014},
+  publisher={IEEE}
+}
+
+@article{matkovic2008interactive,
+  title={Interactive visual steering-rapid visual prototyping of a common rail injection system},
+  author={Matkovi{\'c}, Kre{\^s}imir and Gra{\v{c}}anin, Denis and Jelovi{\'c}, Mario and Hauser, Helwig},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={14},
+  number={6},
+  pages={1699--1706},
+  year={2008},
+  publisher={IEEE}
+}
+
+@article{schmidt2015,
+  title={Construction of a multi-scale spiking model of macaque visual cortex},
+  author={Schmidt, Maximilian and Bakker, Rembrandt and Diesmann, Markus and van Albada, Sacha J},
+  journal={arXiv preprint arXiv:1511.09364},
+  year={2015}
+}
+
+@article{schirner2015automated,
+  title={An automated pipeline for constructing personalized virtual brains from multimodal neuroimaging data},
+  author={Schirner, Michael and Rothmeier, Simon and Jirsa, Viktor K and McIntosh, Anthony Randal and Ritter, Petra},
+  journal={Neuroimage},
+  volume={117},
+  pages={343--357},
+  year={2015},
+  publisher={Elsevier}
+}
+
+@article{ritter2013virtual,
+  title={The virtual brain integrates computational modeling and multimodal neuroimaging},
+  author={Ritter, Petra and Schirner, Michael and McIntosh, Anthony R and Jirsa, Viktor K},
+  journal={Brain connectivity},
+  volume={3},
+  number={2},
+  pages={121--145},
+  year={2013},
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA}
+}
+
+@ARTICLE{leon2015irtual,
+AUTHOR={Sanz Leon, Paula and Knock, Stuart and Woodman, M. and Domide, Lia and Mersmann, Jochen and McIntosh, Anthony R and Jirsa, Viktor},
+TITLE={The Virtual Brain: a simulator of primate brain network dynamics},
+JOURNAL={Frontiers in Neuroinformatics},
+VOLUME={7},
+PAGES={10},
+YEAR={2013},
+URL={http://journal.frontiersin.org/article/10.3389/fninf.2013.00010},
+DOI={10.3389/fninf.2013.00010},
+ISSN={1662-5196}
+}
+
+@Inbook{Lippert2014,
+  author =	 "Lippert, Thomas and Orth, Boris",
+  editor =	 "Grandinetti, Lucio and Lippert, Thomas and Petkov, Nicolai",
+  title =	 "Supercomputing Infrastructure for Simulations of the Human Brain",
+  bookTitle =	 "Brain-Inspired Computing: International Workshop,
+                  BrainComp 2013, Cetraro, Italy, July 8-11, 2013,
+                  Revised Selected Papers",
+  year =	 "2014",
+  publisher =	 "Springer International Publishing",
+  address =	 "Cham",
+  pages =	 "198--212",
+  isbn =	 "978-3-319-12084-3",
+  doi =		 "10.1007/978-3-319-12084-3_16",
+  url =		 "http://dx.doi.org/10.1007/978-3-319-12084-3_16"
+}
+
+@Article{Zaytsev2015,
+  author="Zaytsev, Yury V.
+  and Morrison, Abigail
+  and Deger, Moritz",
+  title="Reconstruction of recurrent synaptic connectivity of thousands of neurons from simulated spiking activity",
+  journal="Journal of Computational Neuroscience",
+  year="2015",
+  volume="39",
+  number="1",
+  pages="77--103",
+  abstract="Dynamics and function of neuronal networks are determined by their synaptic connectivity. Current experimental methods to analyze synaptic network structure on the cellular level, however, cover only small fractions of functional neuronal circuits, typically without a simultaneous record of neuronal spiking activity. Here we present a method for the reconstruction of large recurrent neuronal networks from thousands of parallel spike train recordings. We employ maximum likelihood estimation of a generalized linear model of the spiking activity in continuous time. For this model the point process likelihood is concave, such that a global optimum of the parameters can be obtained by gradient ascent. Previous methods, including those of the same class, did not allow recurrent networks of that order of magnitude to be reconstructed due to prohibitive computational cost and numerical instabilities. We describe a minimal model that is optimized for large networks and an efficient scheme for its parallelized numerical optimization on generic computing clusters. For a simulated balanced random network of 1000 neurons, synaptic connectivity is recovered with a misclassification error rate of less than 1 {\%} under ideal conditions. We show that the error rate remains low in a series of example cases under progressively less ideal conditions. Finally, we successfully reconstruct the connectivity of a hidden synfire chain that is embedded in a random network, which requires clustering of the network connectivity to reveal the synfire groups. Our results demonstrate how synaptic connectivity could potentially be inferred from large-scale parallel spike train recordings.",
+  issn="1573-6873",
+  doi="10.1007/s10827-015-0565-5",
+  url="http://dx.doi.org/10.1007/s10827-015-0565-5"
+}
+
+@article{hagmann2008,
+  title={Mapping the structural core of human cerebral cortex},
+  author={Hagmann, Patric and Cammoun, Leila and Gigandet, Xavier and Meuli, Reto and Honey, Christopher J and Wedeen, Van J and Sporns, Olaf},
+  journal={PLoS Biol},
+  volume={6},
+  number={7},
+  pages={e159},
+  year={2008},
+  publisher={Public Library of Science}
+}
+
+@article{fischl2012,
+  title={FreeSurfer},
+  author={Fischl, Bruce},
+  journal={Neuroimage},
+  volume={62},
+  number={2},
+  pages={774--781},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@article{nevado2014,
+  title={Effective connectivity of the subthalamic nucleus--globus pallidus network during {P}arkinsonian oscillations},
+  author={Nevado-Holgado, Alejo J and Mallet, Nicolas and Magill, Peter J and Bogacz, Rafal},
+  journal={The Journal of Physiology},
+  volume={592},
+  number={7},
+  pages={1429--1455},
+  year={2014},
+  publisher={Wiley Online Library}
+}
+
+@Article{Potjans2012,
+   Author="Potjans, T. C.  and Diesmann, M. ",
+   Title="{{T}he cell-type specific cortical microcircuit: relating structure and activity in a full-scale spiking network model}",
+   Journal="Cereb. Cortex",
+   Year="2014",
+   Volume="24",
+   Number="3",
+   Pages="785--806",
+   Month="Mar"
+}
+
+@article{bakker2012cocomac,
+  title={CoCoMac 2.0 and the future of tract-tracing databases},
+  author={Bakker, Rembrandt and Wachtler, Thomas and Diesmann, Markus},
+  journal={Frontiers in Neuroinformatics},
+  volume={6},
+  pages={30},
+  year={2012},
+  publisher={Frontiers}
+}
+
+@article{schuecker2015,
+  title={Fundamental activity constraints lead to specific interpretations of the connectome},
+  author={Schuecker, Jannis and Schmidt, Maximilian and van Albada, Sacha J and Diesmann, Markus and Helias, Moritz},
+  journal={arXiv preprint arXiv:1509.03162},
+  year={2015}
+}
+
+@article {Schirner2016,
+	author = {Schirner, Michael and McIntosh, Anthony Randal and Jirsa, Viktor and Deco, Gustavo and Ritter, Petra},
+	title = {Bridging multiple scales in the human brain using computational modelling},
+	year = {2016},
+	doi = {10.1101/085548},
+	publisher = {Cold Spring Harbor Labs Journals},
+	abstract = {Brain dynamics span multiple spatial and temporal scales, from fast spiking neurons to slow fluctuations over distributed areas. No single experimental method links data across scales. Here, we bridge this gap using The Virtual Brain connectome-based modelling platform to integrate multimodal data with biophysical models and support neurophysiological inference. Simulated cell populations were linked with subject-specific white-matter connectivity estimates and driven by electroencephalography-derived electric source activity. The models were fit to subject-specific resting-state functional magnetic resonance imaging data, and overfitting was excluded using 5-fold cross-validation. Further evaluation of the models show how balancing excitation with feedback inhibition generates an inverse relationship between α-rhythms and population firing on a faster time scale and resting-state network oscillations on a slower time scale. Lastly, large-scale interactions in the model lead to the emergence of scale-free power-law spectra. Our novel findings underscore the integrative role for computational modelling to complement empirical studies.},
+	URL = {http://biorxiv.org/content/early/2016/11/03/085548},
+	eprint = {http://biorxiv.org/content/early/2016/11/03/085548.full.pdf},
+	journal = {bioRxiv}
+}
+
+@misc{NEST_2_12,
+  author       = {Kunkel, Susanne and
+                  Morrison, Abigail and
+                  Weidel, Philipp and
+                  Eppler, Jochen Martin and
+                  Sinha, Ankur and
+                  Schenck, Wolfram and
+                  Schmidt, Maximilian and
+                  Vennemo, Stine Brekke and
+                  Jordan, Jakob and
+                  Peyser, Alexander and
+                  Plotnikov, Dimitri and
+                  Graber, Steffen and
+                  Fardet, Tanguy and
+                  Terhorst, Dennis and
+                  Mørk, Håkon and
+                  Trensch, Guido and
+                  Seeholzer, Alex and
+                  Deepu, Rajalekshmi and
+                  Hahne, Jan and
+                  Blundell, Inga and
+                  Ippen, Tammo and
+                  Schuecker, Jannis and
+                  Bos, Hannah and
+                  Diaz, Sandra and
+                  Hagen, Espen and
+                  Mahmoudian, Sepehr and
+                  Bachmann, Claudia and
+                  Lepperød, Mikkel Elle and
+                  Breitwieser, Oliver and
+                  Golosio, Bruno and
+                  Rothe, Hendrik and
+                  Setareh, Hesam and
+                  Djurfeldt, Mikael and
+                  Schumann, Till and
+                  Shusharin, Alexey and
+                  Garrido, Jesús and
+                  Muller, Eilif Benjamin and
+                  Rao, Arjun and
+                  Vieites, Juan Hernando and
+                  Plesser, Hans Ekkehard},
+  title        = {NEST 2.12.0},
+  month        = mar,
+  year         = 2017,
+  doi          = {10.5281/zenodo.259534},
+  url          = {https://doi.org/10.5281/zenodo.259534}
+}
+
+@article{cubitt2012,
+  title={Extracting dynamical equations from experimental data is NP hard},
+  author={Cubitt, Toby S and Eisert, Jens and Wolf, Michael M},
+  journal={Physical review letters},
+  volume={108},
+  number={12},
+  pages={120503},
+  year={2012},
+  publisher={APS}
+}
+
+
+@article{Djurfeldt2010,
+author="Djurfeldt, Mikael
+and Hjorth, Johannes
+and Eppler, Jochen M.
+and Dudani, Niraj
+and Helias, Moritz
+and Potjans, Tobias C.
+and Bhalla, Upinder S.
+and Diesmann, Markus
+and Hellgren Kotaleski, Jeanette
+and Ekeberg, {\"O}rjan",
+title="Run-Time Interoperability Between Neuronal Network Simulators Based on the MUSIC Framework",
+journal="Neuroinformatics",
+year="2010",
+volume="8",
+number="1",
+pages="43--60",
+abstract="MUSIC is a standard API allowing large scale neuron simulators to exchange data within a parallel computer during runtime. A pilot implementation of this API has been released as open source. We provide experiences from the implementation of MUSIC interfaces for two neuronal network simulators of different kinds, NEST and MOOSE. A multi-simulation of a cortico-striatal network model involving both simulators is performed, demonstrating how MUSIC can promote inter-operability between models written for different simulators and how these can be re-used to build a larger model system. Benchmarks show that the MUSIC pilot implementation provides efficient data transfer in a cluster computer with good scaling. We conclude that MUSIC fulfills the design goal that it should be simple to adapt existing simulators to use MUSIC. In addition, since the MUSIC API enforces independence of the applications, the multi-simulation could be built from pluggable component modules without adaptation of the components to each other in terms of simulation time-step or topology of connections between the modules.",
+issn="1559-0089",
+doi="10.1007/s12021-010-9064-z",
+url="http://dx.doi.org/10.1007/s12021-010-9064-z"
+}
+
+@article{hensch2005critical,
+  title={Critical period plasticity in local cortical circuits},
+  author={Hensch, Takao K},
+  journal={Nature Reviews Neuroscience},
+  volume={6},
+  number={11},
+  pages={877--888},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+@ARTICLE{migliore2014,
+AUTHOR={Migliore, Michele and Cavarretta, Francesco and Hines, Michael L. and Shepherd, Gordon M.},
+TITLE={Distributed organization of a brain microcircuit analyzed by three-dimensional modeling: the olfactory bulb},
+JOURNAL={Frontiers in Computational Neuroscience},
+VOLUME={8},
+PAGES={50},
+YEAR={2014},
+URL={http://journal.frontiersin.org/article/10.3389/fncom.2014.00050},
+DOI={10.3389/fncom.2014.00050},
+ISSN={1662-5188},
+ABSTRACT={The functional consequences of the laminar organization observed in cortical systems cannot be easily studied using standard experimental techniques, abstract theoretical representations, or dimensionally reduced models built from scratch.   To solve this problem we have developed a full implementation of an olfactory bulb microcircuit using realistic three-dimensional inputs, cell morphologies, and network connectivity. The results provide new insights into the relations between the functional properties of individual cells and the networks in which they are embedded. To our knowledge, this is the first model of the mitral-granule cell network to include a realistic representation of the experimentally-recorded complex spatial patterns elicited in the glomerular layer by natural odor stimulation.  Although the olfactory bulb, due to its organization, has unique advantages with respect to other brain systems, the method is completely general, and can be integrated with more general approaches to other systems. The model makes experimentally testable predictions on distributed processing and on the differential backpropagation of somatic action potentials in each lateral dendrite following odor learning, providing a powerful three-dimensional framework for investigating the functions of brain microcircuits.}
+}
+
+@article{roy2014using,
+  title={Using the virtual brain to reveal the role of oscillations and plasticity in shaping brain's dynamical landscape},
+  author={Roy, Dipanjan and Sigala, Rodrigo and Breakspear, Michael and McIntosh, Anthony Randal and Jirsa, Viktor K and Deco, Gustavo and Ritter, Petra},
+  journal={Brain connectivity},
+  volume={4},
+  number={10},
+  pages={791--811},
+  year={2014},
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA}
+}
+
+@article{lopez2015state,
+  title={State and parameter estimation of a neural mass model from electrophysiological signals during the status epilepticus},
+  author={L{\'o}pez-Cuevas, Armando and Castillo-Toledo, Bernardino and Medina-Ceja, Laura and Ventura-Mej{\'\i}a, Consuelo},
+  journal={NeuroImage},
+  volume={113},
+  pages={374--386},
+  year={2015},
+  publisher={Elsevier}
+}
+
+@book{kirk2012optimal,
+  title={Optimal Control Theory: An Introduction},
+  author={Kirk, D.E.},
+  isbn={9780486135076},
+  lccn={2003070111},
+  series={Dover Books on Electrical Engineering},
+  url={https://books.google.de/books?id=onuH0PnZwV4C},
+  year={2012},
+  publisher={Dover Publications}
+}
+
+@article{kammara2016,
+  title={Multi-objective optimization and visualization for analog design automation},
+  author={Kammara, Abhaya Chandra and Palanichamy, Lingaselvan and K{\"o}nig, Andreas},
+  journal={Complex \& Intelligent Systems},
+  volume={2},
+  number={4},
+  pages={251--267},
+  year={2016},
+  publisher={Springer}
+}
+
+@article{ohira1993master,
+  title={Master-equation approach to stochastic neurodynamics},
+  author={Ohira, Toru and Cowan, Jack D},
+  journal={Physical Review E},
+  volume={48},
+  number={3},
+  pages={2259},
+  year={1993},
+  publisher={APS}
+}
+
+@inproceedings{cowan1991stochastic,
+  title={Stochastic neurodynamics},
+  author={Cowan, Jack D},
+  booktitle={Advances in neural information processing systems},
+  pages={62--69},
+  year={1991}
+}
+
+@Article{Brunel2000,
+author="Brunel, Nicolas",
+title="Dynamics of Sparsely Connected Networks of Excitatory and Inhibitory Spiking Neurons",
+journal="Journal of Computational Neuroscience",
+year="2000",
+month="May",
+day="01",
+volume="8",
+number="3",
+pages="183--208",
+abstract="The dynamics of networks of sparsely connected excitatory and inhibitory integrate-and-fire neurons are studied analytically. The analysis reveals a rich repertoire of states, including synchronous states in which neurons fire regularly; asynchronous states with stationary global activity and very irregular individual cell activity; and states in which the global activity oscillates but individual cells fire irregularly, typically at rates lower than the global oscillation frequency. The network can switch between these states, provided the external frequency, or the balance between excitation and inhibition, is varied. Two types of network oscillations are observed. In the fast oscillatory state, the network frequency is almost fully controlled by the synaptic time scale. In the slow oscillatory state, the network frequency depends mostly on the membrane time constant. Finite size effects in the asynchronous state are also discussed.",
+issn="1573-6873",
+doi="10.1023/A:1008925309027",
+url="https://doi.org/10.1023/A:1008925309027"
+}
+
+@article{bos2016,
+  title={Identifying anatomical origins of coexisting oscillations in the cortical microcircuit},
+  author={Bos, Hannah and Diesmann, Markus and Helias, Moritz},
+  journal={PLoS computational biology},
+  volume={12},
+  number={10},
+  pages={e1005132},
+  year={2016},
+  publisher={Public Library of Science}
+}
+
+@article{schuecker2017,
+  title={Fundamental activity constraints lead to specific interpretations of the connectome},
+  author={Schuecker, Jannis and Schmidt, Maximilian and van Albada, Sacha J and Diesmann, Markus and Helias, Moritz},
+  journal={PLoS computational biology},
+  volume={13},
+  number={2},
+  pages={e1005179},
+  year={2017},
+  publisher={Public Library of Science}
+}
+
+@article{DePaola2006,
+  title={Cell type-specific structural plasticity of axonal branches and boutons in the adult neocortex},
+  author={De Paola, Vincenzo and Holtmaat, Anthony and Knott, Graham and Song, Sen and Wilbrecht, Linda and Caroni, Pico and Svoboda, Karel},
+  journal={Neuron},
+  volume={49},
+  number={6},
+  pages={861--875},
+  year={2006},
+  publisher={Elsevier}
+}
+
+
+@article{nowke2018,
+  title={Toward rigorous parameterization of underconstrained neural network models through interactive visualization and steering of connectivity generation},
+  author={Nowke, Christian and Diaz-Pier, Sandra and Weyers, Benjamin and Hentschel, Bernd and Morrison, Abigail and Kuhlen, Torsten W. and Peyser, Alexander},
+  journal={Frontiers in Neuroinformatics},
+  volume={in review },
+}
+
+@article{helias2012,
+  title={Supercomputers ready for use as discovery machines for neuroscience},
+  author={Helias, Moritz and Kunkel, Susanne and Masumoto, Gen and Igarashi, Jun and Eppler, Jochen Martin and Ishii, Shin and Fukai, Tomoki and Morrison, Abigail and Diesmann, Markus},
+  journal={Frontiers in neuroinformatics},
+  volume={6},
+  pages={26},
+  year={2012},
+  publisher={Frontiers}
+}
+
+@article{schmidt2015,
+  title={Full-density multi-scale account of structure and dynamics of macaque visual cortex},
+  author={Schmidt, Maximilian and Bakker, Rembrandt and Shen, Kelly and Bezgin, Gleb and Hilgetag, Claus-Christian and Diesmann, Markus and van Albada, Sacha J},
+  journal={arXiv preprint arXiv:1511.09364},
+  year={2015}
+}
+
+@article{schmidt2013,
+  title={Integrating multi-scale data for a network model of macaque visual cortex},
+  author={Schmidt, Maximilian and van Albada, Sacha and Bakker, Rembrandt and Diesmann, Markus},
+  journal={BMC neuroscience},
+  volume={14},
+  number={1},
+  pages={P111},
+  year={2013},
+  publisher={BioMed Central}
+}
+
+@article{migliore2015,
+  title={Synaptic clusters function as odor operators in the olfactory bulb},
+  author={Migliore, Michele and Cavarretta, Francesco and Marasco, Addolorata and Tulumello, Eleonora and Hines, Michael L and Shepherd, Gordon M},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={112},
+  number={27},
+  pages={8499--8504},
+  year={2015},
+  publisher={National Acad Sciences}
+}
+
+@article{bernardinelli2014,
+  title={Activity-dependent structural plasticity of perisynaptic astrocytic domains promotes excitatory synapse stability},
+  author={Bernardinelli, Yann and Randall, Jerome and Janett, Elia and Nikonenko, Irina and K{\"o}nig, St{\'e}phane and Jones, Emma Victoria and Flores, Carmen E and Murai, Keith K and Bochet, Christian G and Holtmaat, Anthony and others},
+  journal={Current Biology},
+  volume={24},
+  number={15},
+  pages={1679--1688},
+  year={2014},
+  publisher={Elsevier}
+}
+
+@article{kuhlman2014,
+  title={Structural plasticity within the barrel cortex during initial phases of whisker-dependent learning},
+  author={Kuhlman, Sandra J and O'Connor, Daniel H and Fox, Kevin and Svoboda, Karel},
+  journal={Journal of Neuroscience},
+  volume={34},
+  number={17},
+  pages={6078--6083},
+  year={2014},
+  publisher={Soc Neuroscience}
+}
