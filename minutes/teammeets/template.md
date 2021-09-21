@@ -1,7 +1,7 @@
 Arbor Team Meeting 2021 00 00
 =============================
 
-Meeting link: https://meet.google.com/kod-knuo-pie or https://webconf.fz-juelich.de/b/hui-8hm-slc-1ni
+Meeting link: https://conf.dfn.de/webapp/#/?conference=979170431&pin=0000
 Collaborative editing: https://demo.hedgedoc.org/new
 Turn Issues and PRs you want to discuss into agenda items.
 
