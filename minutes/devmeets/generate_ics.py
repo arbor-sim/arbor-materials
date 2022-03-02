@@ -11,8 +11,8 @@ cal.add('version', '2.0')
 
 event = Event()
 event.add('summary', 'Arbor Developer Meeting')
-event.add('dtstart', datetime(2021, 11, 24, 10, 0, 0, tzinfo=timezone('Europe/Amsterdam')))
-event.add('dtend', datetime(2021, 11, 24, 13, 0, 0, tzinfo=timezone('Europe/Amsterdam')))
+event.add('dtstart', datetime(2022, 3, 2, 10, 0, 0, tzinfo=timezone('Europe/Amsterdam')))
+event.add('dtend', datetime(2022, 3, 2, 13, 0, 0, tzinfo=timezone('Europe/Amsterdam')))
 event.add('location', 'https://webconf.fz-juelich.de/b/hui-clp-qgu-ypp')
 event.add('description', '''
           Agenda and minutes: https://github.com/arbor-sim/arbor-materials/blob/master/minutes/devmeets/
