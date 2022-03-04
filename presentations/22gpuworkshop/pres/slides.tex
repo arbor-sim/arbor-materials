@@ -1,4 +1,4 @@
-\documentclass[t]{beamer}
+\documentclass[t,aspectratio=1610]{beamer}
 \usepackage{pdfpages}
 \usepackage{wrapfig}
 \usepackage{cutwin}
@@ -13,10 +13,8 @@
 \titlegraphic{\includegraphics%
     [width=\paperwidth]{placeholder}}
 
-\newcommand{\lenitem}[2][.6\linewidth]{\parbox[t]{#1}{\strut #2\strut}}
-
 \begin{document}
-\maketitle
+% \maketitle
 
 \small
 
@@ -46,7 +44,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Who is Arbor?}
+    \frametitle{What is Arbor? (2)}
     % \framesubtitle{\url{arbor-sim.org}}
 
     Repo: \url{github.com/arbor-sim/arbor}, website: \url{arbor-sim.org}
@@ -96,26 +94,26 @@
     \begin{center}
       \includegraphics[width=.9\textwidth]{api.pdf}
     \end{center}
-  \end{frame}
-  
-  
-  \begin{frame}{Arbor backends}
-    Cell simulation modules share computational backends for channel and synapse state evolution.
-  
-    \vfill
-    \centering
-    CPU-hosted finite volume cell simulation\\
-    \vspace{2ex}
-    \includegraphics[height=0.5\textheight]{backend-api.pdf}
-  
-    \vfill
-  \end{frame}
-  
-  \begin{frame}{Cell simulation timeloop}
-    \begin{center}
-      \includegraphics[height=.75\textheight]{timeloop.pdf}
-    \end{center}
-  \end{frame}
+\end{frame}
+
+
+% \begin{frame}{Arbor backends}
+% Cell simulation modules share computational backends for channel and synapse state evolution.
+
+% \vfill
+% \centering
+% CPU-hosted finite volume cell simulation\\
+% \vspace{2ex}
+% \includegraphics[height=0.5\textheight]{backend-api.pdf}
+
+% \vfill
+% \end{frame}
+
+\begin{frame}{Cell simulation timeloop}
+\begin{center}
+    \includegraphics[height=.75\textheight]{timeloop.pdf}
+\end{center}
+\end{frame}
 
 
 \begin{frame}
