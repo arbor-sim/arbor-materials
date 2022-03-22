@@ -1,5 +1,4 @@
-Arbor Team Meeting 2022 00 00
-=============================
+# Arbor Team Meeting 2022 00 00
 
 Meeting link: https://conf.dfn.de/webapp/#/?conference=979170431&pin=0000
 Collaborative editing: https://demo.hedgedoc.org/new
@@ -9,39 +8,30 @@ Turn Issues and PRs you want to discuss into agenda items.
 
 Presence:
 
-Item 1
-======
+## Item 1
 
 
 
-Item 2
-======
+## Item 2
 
 
 
-Partners
-========
+## Partners
 
 * (text-only updates preferable)
 
+## For your information only
 
-Other Issues & PRs
-==================
+* ..
+
+## Other Issues & PRs
 
 * https://github.com/orgs/arbor-sim/projects/3
 * https://github.com/arbor-sim/arbor/pulls
 
-For your information only
-=========================
- * ..
+## End
 
+### TODO and Decisions
 
-End
-===
-
-TODO and Decisions
-------------------
-
-Next time
----------
+### Next time
 
