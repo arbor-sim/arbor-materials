@@ -1,7 +1,7 @@
 # Arbor Team Meeting 2022 00 00
 
 Meeting link: https://conf.dfn.de/webapp/#/?conference=979170431&pin=0000
-Collaborative editing: https://demo.hedgedoc.org/new
+Collaborative editing: https://notes.desy.de/new
 
 Sort your input prior to meeting by importance. Add less important/less time senitive items in 'FYI' section.
 Turn Issues and PRs you want to discuss into agenda items.
