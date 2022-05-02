@@ -13,12 +13,17 @@ Please don't add items less than 24hrs before the meeting.
 
 Presence:
 
+**Agenda: **
+1. xx
+2. xx
+3. xx
+4. xx
+
 ## Item 1
 
 Intro to item 1.
 
 ## Item 2
-
 
 
 ## Partners
@@ -32,6 +37,10 @@ Intro to item 1.
 ## Parking Space
 
 - Item A
+
+## Questions
+
+- ..
 
 ## Actions and Decisions
 
