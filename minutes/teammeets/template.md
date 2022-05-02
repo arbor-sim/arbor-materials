@@ -2,15 +2,20 @@
 
 Meeting link: https://conf.dfn.de/webapp/#/?conference=979170431&pin=0000
 Collaborative editing: https://notes.desy.de/new
+Action & Decision board: https://github.com/orgs/arbor-sim/projects/5/views/2
+Previous agendas/minutes: https://github.com/arbor-sim/arbor-materials/tree/master/minutes/teammeets
+Dev board: https://github.com/orgs/arbor-sim/projects/3
+Open PRs: https://github.com/arbor-sim/arbor/pulls
 
-Sort your input prior to meeting by importance. Add less important/less time senitive items in 'FYI' section.
-Turn Issues and PRs you want to discuss into agenda items.
+Have a brief intro to your item if possible.
+Add less important/less time sensitive items in 'FYI' section.
+Please don't add items less than 24hrs before the meeting.
 
 Presence:
 
 ## Item 1
 
-
+Intro to item 1.
 
 ## Item 2
 
@@ -18,20 +23,18 @@ Presence:
 
 ## Partners
 
-* (text-only updates preferable)
+- (text-only updates preferable)
 
-## For your information only
+## FYI / Announcements (no discussion)
 
-* ..
+- ..
 
-## Other Issues & PRs
+## Parking Space
 
-* https://github.com/orgs/arbor-sim/projects/3
-* https://github.com/arbor-sim/arbor/pulls
+- Item A
 
-## End
-
-### TODO and Decisions
+### Actions and Decisions
 
 ### Next time
 
+- Item B
